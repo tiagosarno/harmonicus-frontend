@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <div class="internal">DIV</div>
+    <div class="internal">...</div>
   </div>
 </template>
 
@@ -17,6 +17,5 @@ export default {
     height: 650px;
     width: 100%;
     margin-top: 10px;
-    border: 3px solid lightcoral;
   }
 </style>
