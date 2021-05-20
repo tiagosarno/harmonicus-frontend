@@ -64,7 +64,7 @@
             </div>
           </div>
           <div class="container-search-buttons">
-            <b-button variant="primary" class="mr-4">
+            <b-button variant="primary" class="mr-2">
               Pesquisar <b-icon-search></b-icon-search
             ></b-button>
             <b-button v-b-tooltip.hover title="Disponíveis pra Hoje"
