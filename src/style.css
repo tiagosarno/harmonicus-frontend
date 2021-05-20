@@ -1,6 +1,6 @@
 body {
 	display: grid;
-	background: linear-gradient(to bottom, white 300px, #c6d2df 300px 100%);
+	background: linear-gradient(to bottom, white 330px, #c6d2df 330px 100%);
 	font-family: 'Roboto', sans-serif;
   }
   a {
@@ -13,4 +13,10 @@ body {
   strong, h2{
 	font-weight: 600;
 	font-family: "Roboto";
+  }
+
+  @media screen and (max-width: 768px) {
+    body {
+      background: linear-gradient(to bottom, white 400px, #c6d2df 400px 100%);
+    }
   }

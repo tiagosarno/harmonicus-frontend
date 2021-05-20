@@ -1,14 +1,14 @@
 <template>
-  <b-container fluid>
+  <b-container fluid class="mt-2">
     <b-row align-v="end" class="mb-4">
-      <b-col md="3">
+      <b-col md="3" class="menu">
         <img src="@/assets/harmonicus.png" :height="sizeLogo" class="logo" />
       </b-col>
-      <b-col md="5">
+      <b-col md="5" class="menu">
         <b-row>
           <b-col>
             <strong class="t-slogan">O Equilíbro</strong><br />
-            <span class="t-slogan">do seu bem estar</span>            
+            <span class="t-slogan">do seu bem estar</span>
           </b-col>
         </b-row>
       </b-col>
@@ -17,8 +17,9 @@
       </b-col>
     </b-row>
     <b-alert show variant="info">
-      <span>A sua plataforma on-line para consultas 
-        psicológicas, acervo em vídeos e artigos desenvolvido por nossos psicólogos e muito mais..</span>
+        Plataforma facilitadora para a realização de
+        <strong>terapias on-line</strong>. Conte com um acervo relevante de cursos, vídeos e artigos
+        desenvolvidos por nossos profissionais.
     </b-alert>
     <Search />
   </b-container>
@@ -50,7 +51,7 @@ export default {
   color: #023770;
 }
 
-@media screen and (max-width: 768px) {  
+@media screen and (max-width: 768px) {
   .t-slogan {
     font-size: 1.5rem;
     color: #023770;
