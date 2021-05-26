@@ -1,22 +1,23 @@
 body {
-	display: grid;
-	background: linear-gradient(to bottom, white 330px, #c6d2df 330px 100%);
-	font-family: 'Roboto', sans-serif;
-  }
-  a {
-	font-family: "Roboto";
-  }
-  span { 
-	font-weight: 300;
-	font-family: "Roboto";
-  }
-  strong, h2{
-	font-weight: 600;
-	font-family: "Roboto";
-  }
+  display: grid;
+  background: linear-gradient(to bottom, white 330px, #c6d2df 330px 100%);
+  font-family: "Roboto", sans-serif;
+}
+a {
+  font-family: "Roboto";
+}
+span {
+  font-weight: 300;
+  font-family: "Roboto";
+}
+strong,
+h2 {
+  font-weight: 600;
+  font-family: "Roboto";
+}
 
-  @media screen and (max-width: 768px) {
-    body {
-      background: linear-gradient(to bottom, white 400px, #c6d2df 400px 100%);
-    }
+@media screen and (max-width: 768px) {
+  body {
+    background: linear-gradient(to bottom, white 400px, #c6d2df 400px 100%);
   }
+}

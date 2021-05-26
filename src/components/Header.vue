@@ -13,7 +13,8 @@
         </b-row>
       </b-col>
       <b-col md="4" class="menu" align-self="center">
-        <Menu />
+        <MenuUser v-if="authenticated" />
+        <Menu v-else />
       </b-col>
     </b-row>
     <b-alert show variant="info">
@@ -27,12 +28,14 @@
 
 <script>
 import Menu from "./Menu.vue";
+import MenuUser from "./MenuUser.vue";
 import Search from "./Search.vue";
 
 export default {
-  components: { Menu, Search },
+  components: { Menu, MenuUser, Search },
   data() {
     return {
+      authenticated: false,
       sizeLogo: 200,
     };
   },
