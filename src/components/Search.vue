@@ -6,9 +6,9 @@
           id="accordion"
           block
           v-b-toggle.accordion-1
-          variant="light"
+          variant="primary"
           v-b-tooltip.hover
-          title="Pesquisar Psicólogos"
+          title="Clique para esconder ou exibir a caixa de pesquisa"
           ><strong>Como podemos te ajudar?</strong> Oferecemos a você os
           melhores psicólogos
         </b-button>

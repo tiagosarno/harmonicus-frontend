@@ -18,8 +18,8 @@
       </b-col>
     </b-row>
     <b-alert show variant="info">
-        Plataforma facilitadora para a realização de
-        <strong>terapias on-line</strong>. Conte com um acervo relevante de cursos, vídeos e artigos
+        Plataforma para a realização de
+        terapias on-line. Conte com um acervo relevante de cursos, vídeos e artigos
         desenvolvidos por nossos profissionais.
     </b-alert>
     <Search />
