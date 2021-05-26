@@ -1,15 +1,15 @@
 <template>
   <div>
     <b-button-group>
-      <b-button variant="light" v-b-tooltip.hover title="Página Inicial">
+      <b-button variant="outline-primary" v-b-tooltip.hover title="Página Inicial">
         <b-icon-house-fill></b-icon-house-fill>
       </b-button>
-      <b-dropdown left text="Menu" variant="light">
+      <b-dropdown left text="Menu" variant="outline-primary">
         <b-dropdown-item          
           v-for="(menu,i) in menus" 
           :key="i">{{ menu.text }}</b-dropdown-item>        
       </b-dropdown>
-      <b-button variant="light">Cadastrar</b-button>
+      <b-button variant="outline-primary">Cadastrar</b-button>
       <b-button 
         id="tooltip-access" 
         variant="primary">

@@ -16,22 +16,29 @@
           <p><a href="#">FAQ (Perguntas Frequentes)</a></p>
           <p><a href="#">Código de Ética</a></p>
           <p><a href="#">Política de Privacidade</a></p>
-          <p><a href="#">CRP CEO Rosane Rocha</a></p>
+          <p><a href="#">CNES 00000000/000</a></p>
         </div>
         <div class="item-footer">
-          <p><a href="#">CNES 00000000/000</a></p>
-          <p><a href="#">0800-1548-0707</a></p>
-          <p><a href="#">suporte@harmonicus.com.br</a></p>
+          <p><span>suporte@harmonicus.com.br</span></p>
+          <p><span>imprensa@harmonicus.com.br</span></p>
           <p>
             <span
               >Avenida Rio Branco, 1º andar, Sala 203, CEP 74565-310, Goiânia,
-              Goiás</span
+              Goiás, Fone 4005-7878</span
             >
           </p>
         </div>
         <div class="item-footer footer-logo">
             <img src="@/assets/harmonicus-white.png" height="160" />
             <b-button-group class="mt-3">
+              <b-button
+                @click="accessInstagram"
+                variant="secondary"
+                v-b-tooltip.hover
+                title="Suporte WhatsApp"
+              >
+                <b-icon-phone></b-icon-phone>
+              </b-button>
               <b-button
                 @click="accessInstagram"
                 variant="secondary"
