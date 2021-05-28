@@ -17,7 +17,7 @@
         <Menu v-else />
       </b-col>
     </b-row>
-    <b-alert show variant="info">
+    <b-alert show variant="success">
         Plataforma para a realização de
         terapias on-line. Conte com um acervo relevante de cursos, vídeos e artigos
         desenvolvidos por nossos profissionais.
@@ -53,7 +53,9 @@ export default {
   font-size: 3.2rem;
   color: #023770;
 }
-
+.b-avatar .b-avatar-img img {
+  border: 2px solid #683c10;
+}
 @media screen and (max-width: 768px) {
   .t-slogan {
     font-size: 1.5rem;
