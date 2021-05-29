@@ -13,13 +13,13 @@
             size="5rem"
             button
             @click="onClick"
-            v-b-tooltip.hover title="Visitar"
+            v-b-tooltip.hover title="visitar perfil"
           ></b-avatar>
           <div class="display-flex-column">
             <b-link 
               tag="router-link" 
               :to="{ name: 'signUp' }">
-              <strong v-b-tooltip.hover.top title="Visitar">Rubens Moura Neto</strong>
+              <strong v-b-tooltip.hover.top title="visitar perfil">Rubens Moura Neto</strong>
             </b-link>
             <span class="mr-auto">
               Psicólogo Clínico
@@ -35,11 +35,11 @@
             size="5rem"
             button
             @click="onClick"
-            v-b-tooltip.hover title="Visitar"
+            v-b-tooltip.hover title="visitar perfil"
           ></b-avatar>
           <div class="display-flex-column">
             <b-link tag="router-link" :to="{ name: 'signUp' }">
-              <strong v-b-tooltip.hover.top title="Visitar">Rosane M M Rocha</strong>
+              <strong v-b-tooltip.hover.top title="visitar perfil">Rosane M M Rocha</strong>
             </b-link>
             <span class="mr-auto">
               Psicóloga Clínica
@@ -54,11 +54,11 @@
             size="5rem"
             button
             @click="onClick"
-            v-b-tooltip.hover title="Visitar"
+            v-b-tooltip.hover title="visitar perfil"
           ></b-avatar>
           <div class="display-flex-column">
             <b-link tag="router-link" :to="{ name: 'signUp' }">
-              <strong v-b-tooltip.hover.top title="Visitar">Raquel Fernanda Musk</strong>
+              <strong v-b-tooltip.hover.top title="visitar perfil">Raquel Fernanda Musk</strong>
             </b-link>
             <span class="mr-auto">
               Psicóloga Clínica
