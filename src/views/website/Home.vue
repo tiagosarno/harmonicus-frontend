@@ -1,6 +1,6 @@
 <template>
-  <b-container fluid class="mt-3">
-    <b-card-group deck>
+  <b-container fluid>
+    <b-card-group deck class="mt-3">
       <b-card no-body>
         <b-card-body>
           <ShortVideos />
@@ -15,7 +15,7 @@
 
     <b-card-group deck class="mt-3">
       <b-card no-body>
-        <b-card-body>          
+        <b-card-body>
           <ShortArticles />
         </b-card-body>
       </b-card>

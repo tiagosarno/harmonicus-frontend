@@ -25,7 +25,7 @@
             <span class="small mb-2"
               >por:
               <b-link tag="router-link" :to="{ name: 'signUp' }">
-                <strong v-b-tooltip.hover.top title="Visitar"
+                <strong v-b-tooltip.hover.top title="visitar perfil"
                   >Rosane M M Rocha</strong
                 >
               </b-link></span
