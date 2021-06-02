@@ -14,11 +14,14 @@
           v-for="(menu,i) in menus" 
           :key="i">{{ menu.text }}</b-dropdown-item>        
       </b-dropdown>
-      <b-button 
-        tag="router-link"
-        :to="{ name: 'signUp' }"
-        variant="primary">
-        Cadastrar</b-button>
+      <b-dropdown left text="Cadastrar" variant="primary">
+        <b-dropdown-item
+          tag="router-link"
+          v-for="(menu,i) in menusRegister" 
+          :key="i"
+          :to="{ name: 'signUp', params: { component: menu.value }, 
+            hash: '#form-alert-register' }">{{ menu.text }}</b-dropdown-item>
+      </b-dropdown>      
       <b-button 
         id="tooltip-access" 
         variant="primary">
@@ -45,7 +48,11 @@ export default {
         { value: 'codigo-etica', text: 'Código de Ética' },
         { value: 'perguntas-respostas', text: 'Perguntas & Respostas' },
         { value: 'suporte-tecnico', text: 'Suporte Técnico' },
-      ]
+      ],
+      menusRegister: [
+        { value: 'FormPatient', text: 'Registrar como Paciente' },
+        { value: 'FormPsychologist', text: 'Registrar como Psicólogo' }
+      ],
     }
   }
 };

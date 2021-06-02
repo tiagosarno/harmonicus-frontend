@@ -8,7 +8,12 @@
         <b-row>
           <b-col>
             <strong class="t-slogan">O Equilíbro</strong><br />
-            <span class="t-slogan">do seu bem estar</span>
+            <span class="t-slogan">do seu bem estar</span><br />
+            <span class="subtitle">
+              Plataforma para a realização de terapias on-line. Conte com um 
+              acervo relevante de vídeos e artigos desenvolvidos por nossos 
+              profissionais.
+            </span>
           </b-col>
         </b-row>
       </b-col>
@@ -17,11 +22,6 @@
         <Menu v-else />
       </b-col>
     </b-row>
-    <b-alert show variant="success">
-        Plataforma para a realização de
-        terapias on-line. Conte com um acervo relevante de cursos, vídeos e artigos
-        desenvolvidos por nossos profissionais.
-    </b-alert>
     <Search />
   </b-container>
 </template>
@@ -52,6 +52,10 @@ export default {
 .t-slogan {
   font-size: 3.2rem;
   color: #023770;
+  line-height: 100%;
+}
+.subtitle {  
+  color: #333;
 }
 .b-avatar .b-avatar-img img {
   border: 2px solid #683c10;
