@@ -5,6 +5,12 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    showSearch: true
+  },
+  getters: {
+    showSearch(state){
+      return state.showSearch
+    }    
   },
   mutations: {
   },

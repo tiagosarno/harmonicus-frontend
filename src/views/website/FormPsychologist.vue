@@ -189,10 +189,16 @@ export default {
       this.show = false;
       this.$nextTick(() => {
         this.show = true;
-      });
-    },
+      })
+    }
   },
-};
+  created() {
+    this.$store.state.showSearch = false
+  },
+  destroyed() {
+    this.$store.state.showSearch = true
+  }
+}
 </script>
 
 <style></style>

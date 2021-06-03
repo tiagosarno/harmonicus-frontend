@@ -113,7 +113,7 @@
 <script>
 export default {
   data() {
-    return {
+    return {      
       form: {
         email: "",
         name: "",
@@ -173,6 +173,12 @@ export default {
       });
     },
   },
+  created() {
+    this.$store.state.showSearch = false
+  },
+  destroyed() {
+    this.$store.state.showSearch = true
+  }
 };
 </script>
 

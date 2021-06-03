@@ -15,7 +15,7 @@
       </b-card-header>
       <b-collapse
         id="accordion-1"
-        visible
+        v-model="showSearch"
         accordion="my-accordion"
         role="tabpanel"
       >
@@ -78,10 +78,11 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   data() {
     return {
-      showSearch: false,
       selected: true,
       frmAge: null,
       ageOptions: [
@@ -125,7 +126,9 @@ export default {
       ],
     };
   },
-  computed: {},
+  computed: mapGetters({
+    showSearch: 'showSearch'
+  }),
 };
 </script>
 
