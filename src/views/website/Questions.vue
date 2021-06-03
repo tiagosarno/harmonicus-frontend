@@ -1,7 +1,7 @@
 <template>
   <b-container fluid>
     <b-card>
-      <b-card-title>Vídeos</b-card-title>
+      <b-card-title>Perguntas & Respostas</b-card-title>
       <b-card-body>
         ...
       </b-card-body>

@@ -2,6 +2,12 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomePage from '../views/website/Home.vue'
 import SignUp from '../views/website/SignUp.vue'
+import WhoIs from '../views/website/WhoIs.vue'
+import Videos from '../components/videos/Videos.vue'
+import Articles from '../components/articles/Articles.vue'
+import Ethics from '../views/website/Ethics.vue'
+import Questions from '../views/website/Questions.vue'
+import Support from '../views/website/Support.vue'
 
 Vue.use(VueRouter)
 
@@ -17,6 +23,36 @@ const routes = [
     component: SignUp,
     props: true
   },
+  {
+    path: '/quemsomos',
+    name: 'whoIs',
+    component: WhoIs
+  },
+  {
+    path: '/videos',
+    name: 'videos',
+    component: Videos
+  },
+  {
+    path: '/artigos',
+    name: 'articles',
+    component: Articles
+  },
+  {
+    path: '/codigo-de-etica',
+    name: 'ethics',
+    component: Ethics
+  },
+  {
+    path: '/perguntas-respostas',
+    name: 'questions',
+    component: Questions
+  },
+  {
+    path: '/suporte',
+    name: 'support',
+    component: Support
+  }
   // {
   //   path: '/about',
   //   name: 'About',
