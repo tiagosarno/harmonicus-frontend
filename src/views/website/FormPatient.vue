@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-form @submit="onSubmit" @reset="onReset" v-if="show">
+    <b-form @submit="onSubmit" @reset="onReset" v-if="showForm">
       <b-card-group deck>
         <b-card>
           <b-form-input
@@ -42,7 +42,7 @@
             required
             class="mt-2"></b-form-input>
           <b-form-checkbox 
-            value="sim"
+            value="1"
             v-model="form.phoneIsWhatsApp">
             Este número é meu WhatsApp
           </b-form-checkbox>
@@ -66,7 +66,7 @@
             class="mt-2"></b-form-select>
           <b-form-input
             id="frm-pa-addresscity"
-            v-model="form.addressCity"
+            v-model="form.city"
             placeholder="Cidade"
             required
             class="mt-2"></b-form-input>
@@ -106,15 +106,16 @@
 export default {
   data() {
     return {      
+      showForm: true,
       form: {
         email: "",
         name: "",
         howFindHarmonicus: null,
-        checked: [],
         state: null,
         chatApplications: [],
         gender: [],
-        phoneIsWhatsApp: ""
+        phoneIsWhatsApp: "",
+        city: ""
       },
       itemsStates: [
         { value: null, text: "Selecione o seu Estado (UF)", disabled: true },
@@ -132,7 +133,6 @@ export default {
         { value: 4, text: "Propaganda no Facebook" },
         { value: 5, text: "Pesquisa no Google" },
       ],
-      show: true,
       optionsChatApplications: [
         { text: "Microsoft Teams", value: 1 },
         { text: "Google Meet", value: 2 },
@@ -150,15 +150,13 @@ export default {
   methods: {
     onSubmit(event) {
       event.preventDefault();
-      alert(JSON.stringify(this.form));
+      console.log(JSON.stringify(this.form))
     },
     onReset(event) {
       event.preventDefault();
       // Reset our form values
-      this.form.name = "";
-      this.form.email = "";
-      this.form.howFindHarmonicus = null;
-      this.form.chatNetworks = null;
+      this.form = [];
+      
       // Trick to reset/clear native browser form validation state
       this.show = false;
       this.$nextTick(() => {

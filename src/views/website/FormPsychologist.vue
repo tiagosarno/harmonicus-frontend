@@ -1,122 +1,113 @@
 <template>
   <div>
-    <b-form @submit="onSubmit" @reset="onReset" v-if="show">
+    <b-form @submit="onSubmit" @reset="onReset" v-if="showForm">
       <b-card-group deck>
         <b-card>
           <b-form-input
-            id="input-1"
+            id="frm-pa-name"
             v-model="form.name"
             type="text"
             placeholder="Nome completo"
-            required
-          ></b-form-input>
+            required></b-form-input>
           <b-form-group
             class="mt-3"
             label="Sexo"
-            v-slot="{ ariaSex }"
-          >
+            v-slot="{ ariaGender }">
             <b-form-radio-group
-              v-model="form.sex"
-              :options="optionsSex"
-              :aria-describedby="ariaSex"
-              name="sex"
-              required
-            ></b-form-radio-group>
-          </b-form-group>
-          <b-form-group
-            class="mt-3"
-            id="input-group-1"
-            label="Data de Nascimento"
-            label-for="input-1"
-          >
-            <b-form-input
-              class="mt-2"
-              id="input-4"
-              v-model="form.birthDate"
-              type="date"
-              required
-            ></b-form-input>
+              v-model="form.gender"
+              :options="optionsGender"
+              :aria-describedby="ariaGender"
+              name="frm-pa-gender"
+              required></b-form-radio-group>
           </b-form-group>
           <b-form-input
-            class="mt-2"
-            id="input-2"
+            id="frm-pa-email"
             v-model="form.email"
             type="email"
             placeholder="E-mail"
             required
-          ></b-form-input>
+            class="mt-2"></b-form-input>
           <b-form-input
-            class="mt-2"
-            id="input-3"
+            id="frm-pa-cpf"
             v-model="form.cpf"
             type="number"
             placeholder="CPF"
             required
-          ></b-form-input>
+            class="mt-2"></b-form-input>
           <b-form-input
-            class="mt-2"
-            id="input-3"
+            id="frm-pa-crp"
             v-model="form.crp"
-            type="text"
+            type="number"
             placeholder="Informe o seu CRP"
             required
-          ></b-form-input>
+            class="mt-2"></b-form-input>
           <b-form-select
-            class="mt-2"
-            v-model="form.crpState"
-            :options="crpStates"
+            id="frm-pa-statecrp"
+            v-model="form.stateCrp"
+            :options="itemsStateCrp"
             required
-          ></b-form-select>
+            class="mt-2"></b-form-select>
           <b-form-input
-            class="mt-2"
-            id="input-4"
+            id="frm-pa-phone"
             v-model="form.phone"
             type="number"
             placeholder="Telefone"
             required
-          ></b-form-input>
-          <b-form-checkbox value="me"
-            >Este número é meu WhatsApp</b-form-checkbox
-          >
+            class="mt-2"></b-form-input>
+          <b-form-checkbox 
+            value="1"
+            v-model="form.phoneIsWhatsApp">
+            Este número é meu WhatsApp
+          </b-form-checkbox>
+          <b-form-group
+            label="Data de Nascimento:"
+            class="mt-3">
+            <b-form-input
+              id="frm-pa-birthdate"
+              v-model="form.birthDate"
+              type="date"
+              required
+              class="mt-2"></b-form-input>
+          </b-form-group>
         </b-card>
         <b-card>
           <b-form-select
-            class="mt-2"
+            id="frm-pa-state"
             v-model="form.state"
-            :options="states"
+            :options="itemsState"
             required
-          ></b-form-select>
+            class="mt-2"></b-form-select>
           <b-form-input
-            class="mt-2"
-            v-model="form.addressCity"
+            id="frm-pa-addresscity"
+            v-model="form.city"
             placeholder="Cidade"
             required
-          ></b-form-input>
+            class="mt-2"></b-form-input>
           <b-form-select
-            class="mt-2"
+            id="frm-pa-howfindharmonicus"
             v-model="form.howFindHarmonicus"
             :options="itemsHowFind"
             required
-          ></b-form-select>
+            class="mt-2"></b-form-select>
           <b-form-group
             class="mt-3"
             label="Qual das ferramentas re reunião on-line você conhece?"
-            v-slot="{ ariaChatNetworks }"
-          >
+            v-slot="{ ariaApplications }">
             <b-form-checkbox-group
-              v-model="form.chatNetworks"
-              :options="optionsChatNetworks"
-              :aria-describedby="ariaChatNetworks"
+              v-model="form.chatApplications"
+              :options="optionsChatApplications"
+              :aria-describedby="ariaApplications"
               name="chatNetworks"
-              required
-            ></b-form-checkbox-group>
+              required></b-form-checkbox-group>
           </b-form-group>
-
           <b-card-footer class="mt-4">
-            <b-button type="submit" variant="primary" class="mr-2"
-              >Enviar <b-icon-box-arrow-right></b-icon-box-arrow-right
-            ></b-button>
-            <b-button type="reset" variant="danger">Limpar</b-button>
+            <b-button type="submit" 
+              variant="primary" 
+              class="mr-2">
+              Enviar <b-icon-box-arrow-right></b-icon-box-arrow-right>
+            </b-button>
+            <b-button type="reset" 
+              variant="danger">Limpar</b-button>
           </b-card-footer>
         </b-card>
       </b-card-group>
@@ -127,23 +118,26 @@
 <script>
 export default {
   data() {
-    return {
+    return {      
+      showForm: true,
       form: {
-        email: "",
-        name: "",
+        email: null,
+        name: null,
         howFindHarmonicus: null,
-        checked: [],
         state: null,
-        crpState: null,
-        chatNetworks: [],
-        sex: [],
+        chatApplications: [],
+        gender: [],
+        phoneIsWhatsApp: "",
+        city: null,
+        crp: null,
+        stateCrp: null,
       },
-      states: [
+      itemsState: [
         { value: null, text: "Selecione o seu Estado (UF)", disabled: true },
         { value: "GO", text: "Goiás" },
       ],
-      crpStates: [
-        { value: null, text: "Selecione o estado (UF) do seu CRP", disabled: true },
+      itemsStateCrp: [
+        { value: null, text: "Selecione o estado do seu CRP", disabled: true },
         { value: "GO", text: "Goiás" },
       ],
       itemsHowFind: [
@@ -158,16 +152,15 @@ export default {
         { value: 4, text: "Propaganda no Facebook" },
         { value: 5, text: "Pesquisa no Google" },
       ],
-      show: true,
-      optionsChatNetworks: [
+      optionsChatApplications: [
         { text: "Microsoft Teams", value: 1 },
         { text: "Google Meet", value: 2 },
         { text: "ZooM", value: 3 },
         { text: "Skype", value: 4 },
         { text: "WhatsApp", value: 5 },
         { text: "Não conheço nenhuma delas", value: 6 },
-      ],
-      optionsSex: [
+      ],      
+      optionsGender: [
         { value: 'M', text: 'Masculino' },
         { value: 'F', text: 'Feminino' },
       ],
@@ -176,21 +169,19 @@ export default {
   methods: {
     onSubmit(event) {
       event.preventDefault();
-      alert(JSON.stringify(this.form));
+      console.log(JSON.stringify(this.form))
     },
     onReset(event) {
       event.preventDefault();
       // Reset our form values
-      this.form.name = "";
-      this.form.email = "";
-      this.form.howFindHarmonicus = null;
-      this.form.chatNetworks = null;
+      this.form = [];
+      
       // Trick to reset/clear native browser form validation state
       this.show = false;
       this.$nextTick(() => {
         this.show = true;
-      })
-    }
+      });
+    },
   },
   mounted() {
     this.$store.commit('changeShowSearch', false)
@@ -198,7 +189,7 @@ export default {
   destroyed() {
     this.$store.commit('changeShowSearch', true)
   }
-}
+};
 </script>
 
 <style></style>
