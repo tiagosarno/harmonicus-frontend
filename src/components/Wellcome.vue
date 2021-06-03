@@ -17,8 +17,7 @@
           ></b-avatar>
           <div class="display-flex-column">
             <b-link 
-              tag="router-link" 
-              :to="{ name: 'signUp' }">
+              :to="{ name: '' }">
               <strong v-b-tooltip.hover.top title="visitar perfil">Rubens Moura Neto</strong>
             </b-link>
             <span class="mr-auto">
@@ -38,7 +37,7 @@
             v-b-tooltip.hover title="visitar perfil"
           ></b-avatar>
           <div class="display-flex-column">
-            <b-link tag="router-link" :to="{ name: 'signUp' }">
+            <b-link :to="{ name: '' }">
               <strong v-b-tooltip.hover.top title="visitar perfil">Rosane M M Rocha</strong>
             </b-link>
             <span class="mr-auto">
@@ -57,7 +56,7 @@
             v-b-tooltip.hover title="visitar perfil"
           ></b-avatar>
           <div class="display-flex-column">
-            <b-link tag="router-link" :to="{ name: 'signUp' }">
+            <b-link :to="{ name: '' }">
               <strong v-b-tooltip.hover.top title="visitar perfil">Raquel Fernanda Musk</strong>
             </b-link>
             <span class="mr-auto">
@@ -69,7 +68,7 @@
       </b-list-group>
     </b-card-body>
     <b-card-footer>
-      <b-link tag="router-link" :to="{ name: 'signUp' }">
+      <b-link :to="{ name: '' }">
         ver todos <b-icon-chevron-double-right></b-icon-chevron-double-right>
       </b-link>
     </b-card-footer>
@@ -77,7 +76,14 @@
 </template>
 
 <script>
-export default {};
+export default {
+  methods: {
+    //FIXME
+    onClick(){
+      return false;
+    }
+  }
+};
 </script>
 
 <style>

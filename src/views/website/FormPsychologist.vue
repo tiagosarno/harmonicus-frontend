@@ -104,7 +104,7 @@
             v-slot="{ ariaChatNetworks }"
           >
             <b-form-checkbox-group
-              v-model="chatNetworks"
+              v-model="form.chatNetworks"
               :options="optionsChatNetworks"
               :aria-describedby="ariaChatNetworks"
               name="chatNetworks"
@@ -192,11 +192,11 @@ export default {
       })
     }
   },
-  created() {
-    this.$store.state.showSearch = false
+  mounted() {
+    this.$store.commit('changeShowSearch', false)
   },
   destroyed() {
-    this.$store.state.showSearch = true
+    this.$store.commit('changeShowSearch', true)
   }
 }
 </script>

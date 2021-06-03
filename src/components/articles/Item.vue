@@ -4,10 +4,9 @@
       <b-row>
         <b-col md="2">
           <b-link
-            tag="router-link"
             v-b-tooltip.hover.bottom
             title="Baixar PDF"
-            :to="{ name: 'signUp' }"
+            :to="{ name: '' }"
           >
             <b-icon-file-earmark-fill
               variant="danger"
@@ -17,14 +16,14 @@
         </b-col>
         <b-col md="10">
           <div class="ma-2 mt-2 ml-2 short-video-description">
-            <b-link tag="router-link" :to="{ name: 'signUp' }">
+            <b-link :to="{ name: '' }">
               <strong v-b-tooltip.hover.top title="Baixar PDF"
                 >Título do Artigo</strong
               >
             </b-link>
             <span class="small mb-2"
               >por:
-              <b-link tag="router-link" :to="{ name: 'signUp' }">
+              <b-link :to="{ name: '' }">
                 <strong v-b-tooltip.hover.top title="visitar perfil"
                   >Rosane M M Rocha</strong
                 >

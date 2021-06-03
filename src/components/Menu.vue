@@ -1,8 +1,7 @@
 <template>
   <div>
     <b-button-group>
-      <b-button 
-        tag="router-link"
+      <b-button        
         :to="{ name: 'home' }"
         variant="primary" 
         v-b-tooltip.hover 
@@ -16,11 +15,10 @@
       </b-dropdown>
       <b-dropdown left text="Cadastrar" variant="primary">
         <b-dropdown-item
-          tag="router-link"
           v-for="(menu,i) in menusRegister" 
           :key="i"
-          :to="{ name: 'signUp', params: { component: menu.value }, 
-            hash: '#form-alert-register' }">{{ menu.text }}</b-dropdown-item>
+          :to="{ name: 'signUp', params: { component: menu.value } }">
+          {{ menu.text }}</b-dropdown-item>
       </b-dropdown>      
       <b-button 
         id="tooltip-access" 
@@ -50,8 +48,8 @@ export default {
         { value: 'suporte-tecnico', text: 'Suporte Técnico' },
       ],
       menusRegister: [
-        { value: 'FormPatient', text: 'Registrar como Paciente' },
-        { value: 'FormPsychologist', text: 'Registrar como Psicólogo' }
+        { value: 'FormPatient', text: 'Cadastro de Paciente' },
+        { value: 'FormPsychologist', text: 'Cadastro de Psicólogo' }
       ],
     }
   }

@@ -5,8 +5,7 @@
         <b-col md="6">
           
             <b-link 
-              tag="router-link" 
-              :to="{ name: 'signUp' }">              
+              :to="{ name: '' }">              
               <img src="@/assets/videos/v2.png" 
                 width="260"
                 v-b-tooltip.hover
@@ -17,13 +16,11 @@
         <b-col md="6">
           <div class="ma-2 mt-2 ml-2 short-video-description">
             <b-link 
-              tag="router-link" 
-              :to="{ name: 'signUp' }">
+              :to="{ name: '' }">
               <strong v-b-tooltip.hover.top title="Assistir">Título do Vídeo</strong>
             </b-link>
             <span class="small mb-2">por: <b-link 
-              tag="router-link" 
-              :to="{ name: 'signUp' }">
+              :to="{ name: '' }">
               <strong v-b-tooltip.hover.top title="visitar perfil">Rosane M M Rocha</strong>
             </b-link></span>
             <span>Breve descrição do vídeo...</span>          

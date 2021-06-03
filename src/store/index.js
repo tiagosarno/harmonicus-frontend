@@ -13,6 +13,9 @@ export default new Vuex.Store({
     }    
   },
   mutations: {
+    changeShowSearch(state, payload) {
+      state.showSearch = payload
+    }
   },
   actions: {
   },

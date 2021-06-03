@@ -9,8 +9,7 @@
     </b-card-body>
     <b-card-footer>
       <b-link 
-        tag="router-link"
-        :to="{ name: 'signUp' }">
+        :to="{ name: '' }">
         ver todos <b-icon-chevron-double-right></b-icon-chevron-double-right>
       </b-link>
     </b-card-footer>
