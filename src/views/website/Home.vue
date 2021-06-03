@@ -1,12 +1,12 @@
 <template>
   <b-container fluid>
     <b-card-group deck class="mt-3">
-      <b-card no-body>
+      <b-card no-body :class="{'mr-2': applyMargin}">
         <b-card-body>
           <ShortVideos />
         </b-card-body>
       </b-card>
-      <b-card no-body>
+      <b-card no-body :class="{'ml-2': applyMargin}">
         <b-card-body>
           <Wellcome />
         </b-card-body>
@@ -14,12 +14,12 @@
     </b-card-group>
 
     <b-card-group deck class="mt-3">
-      <b-card no-body>
+      <b-card no-body :class="{'mr-2': applyMargin}">
         <b-card-body>
           <ShortArticles />
         </b-card-body>
       </b-card>
-      <b-card no-body>
+      <b-card no-body :class="{'ml-2': applyMargin}">
         <b-card-body>
           <WhoIsHarmonicus />
         </b-card-body>
@@ -29,13 +29,38 @@
 </template>
 
 <script>
-import ShortArticles from "../../components/articles/ShortArticles.vue"
-import ShortVideos from "../../components/videos/ShortVideos.vue"
-import Wellcome from '../../components/Wellcome.vue'
-import WhoIsHarmonicus from '../../components/WhoIsHarmonicus.vue'
+import ShortArticles from "../../components/articles/ShortArticles.vue";
+import ShortVideos from "../../components/videos/ShortVideos.vue";
+import Wellcome from "../../components/Wellcome.vue";
+import WhoIsHarmonicus from "../../components/WhoIsHarmonicus.vue";
 
 export default {
   components: { ShortArticles, ShortVideos, Wellcome, WhoIsHarmonicus },
+  data() {
+    return {
+      classBox: [],
+      classBoxRight: 'mr-2',
+      classBoxLeft: 'ml-2',
+      bsContainerWidth: window.innerWidth
+    };
+  },
+  computed: {
+    applyMargin() {
+      if (this.bsContainerWidth <= 768) {        
+        // console.log("mobile");
+        return false
+      } else if (this.bsContainerWidth <= 950) {
+        // console.log("small");
+        return false
+      } else if (this.bsContainerWidth <= 1170) {
+        // console.log("medium");
+        return false
+      } else {        
+        // console.log("large");
+        return true
+      }
+    }
+  }
 };
 </script>
 
