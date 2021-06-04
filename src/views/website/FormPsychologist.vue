@@ -100,6 +100,33 @@
               name="chatNetworks"
               required></b-form-checkbox-group>
           </b-form-group>
+          <b-alert show variant="danger">
+            <p class="mb-1">
+              <a href="/files/termos-de-uso.pdf" 
+                target="_blank">Clique para ler o "Termo de Uso"</a></p>
+            <p class="mb-1">
+              <a href="/files/codigo-de-etica-psicologo.pdf" 
+              target="_blank">Clique para ler o "Código de Ética"</a></p>
+            <p class="mb-1">
+              <a href="/files/politica-de-privacidade.pdf" 
+              target="_blank">Clique para ler a "Política de Privacidade"</a>
+            </p>
+            <p>
+              <a href="#" @click="$bvModal.show('bv-modal-support')">
+                Clique para ler ver todos os nossos contatos</a>
+            </p>            
+            <b-form-group
+              class="mt-3"
+              label="Termos, Ética e Política"
+              v-slot="{ ariaDocs }">
+              <b-form-checkbox-group
+                v-model="form.docs"
+                :options="optionsDocs"
+                :aria-describedby="ariaDocs"
+                name="chatNetworks"
+                required></b-form-checkbox-group>
+            </b-form-group>
+          </b-alert>
           <b-card-footer class="mt-4">
             <b-button type="submit" 
               variant="primary" 
@@ -131,6 +158,7 @@ export default {
         city: null,
         crp: null,
         stateCrp: null,
+        docs: null,
       },
       itemsState: [
         { value: null, text: "Selecione o seu Estado (UF)", disabled: true },
@@ -163,6 +191,12 @@ export default {
       optionsGender: [
         { value: 'M', text: 'Masculino' },
         { value: 'F', text: 'Feminino' },
+      ],
+      optionsDocs: [
+        { value: 1, text: 'Li e aceito todos os termos de uso' },
+        { value: 2, text: 'Li e estou de acordo com o cógido de ética da profissão' },
+        { value: 3, text: 'Li e aceito toda política de privacidade' },
+        { value: 4, text: 'Li e estou ciente de todas as formas de contato' },
       ],
     };
   },

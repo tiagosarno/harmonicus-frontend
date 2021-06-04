@@ -11,7 +11,8 @@
       <b-dropdown left text="Menu" variant="primary">
         <b-dropdown-item          
           v-for="(menu,i) in menus" 
-          :key="i">{{ menu.text }}</b-dropdown-item>        
+          :key="i"
+          :to="{ name: menu.value }">{{ menu.text }}</b-dropdown-item>
       </b-dropdown>
       <b-dropdown left text="Cadastrar" variant="primary">
         <b-dropdown-item
@@ -40,12 +41,9 @@ export default {
   data(){
     return{
       menus: [
-        { value: 'quem-somos', text: 'Quem Somos' },
         { value: 'videos', text: 'Videoteca' },
-        { value: 'artigos', text: 'Artigos' },
-        { value: 'codigo-etica', text: 'Código de Ética' },
-        { value: 'perguntas-respostas', text: 'Perguntas & Respostas' },
-        { value: 'suporte-tecnico', text: 'Suporte Técnico' },
+        { value: 'articles', text: 'Artigos' },
+        { value: 'questions', text: 'Perguntas & Respostas' },
       ],
       menusRegister: [
         { value: 'FormPatient', text: 'Cadastro de Paciente' },

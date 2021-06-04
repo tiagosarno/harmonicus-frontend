@@ -7,10 +7,10 @@
           block
           v-b-toggle.accordion-1
           variant="primary"
-          v-b-tooltip.hover
+          v-b-tooltip.hover          
           title="Clique para esconder ou exibir a caixa de pesquisa"
-          ><strong>Como podemos te ajudar?</strong> Oferecemos a você os
-          melhores psicólogos
+          ><strong>Pesquisar psicólogos.</strong> Oferecemos a você os
+          melhores profissionais
         </b-button>
       </b-card-header>
       <b-collapse
@@ -64,7 +64,9 @@
             </div>
           </div>
           <div class="container-search-buttons">
-            <b-button variant="primary" class="mr-2">
+            <b-button variant="primary" 
+              class="mr-2"
+              @click="initSearch">
               Pesquisar <b-icon-search></b-icon-search
             ></b-button>
             <b-button v-b-tooltip.hover title="Disponíveis pra Hoje"
@@ -129,6 +131,11 @@ export default {
   computed: mapGetters({
     showSearch: 'showSearch'
   }),
+  methods: {
+    initSearch() {
+      this.$router.push('pesquisa')
+    }
+  }
 };
 </script>
 
