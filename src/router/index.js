@@ -8,6 +8,7 @@ import Articles from '../components/articles/Articles.vue'
 import Ethics from '../views/website/Ethics.vue'
 import Questions from '../views/website/Questions.vue'
 import Support from '../views/website/Support.vue'
+import Search from '../views/website/Search.vue'
 
 Vue.use(VueRouter)
 
@@ -21,6 +22,12 @@ const routes = [
     path: '/cadastrar/:component',
     name: 'signUp',
     component: SignUp,
+    props: true
+  },
+  {
+    path: '/pesquisa',
+    name: 'search',
+    component: Search,
     props: true
   },
   {

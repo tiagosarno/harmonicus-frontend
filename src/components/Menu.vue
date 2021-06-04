@@ -41,12 +41,9 @@ export default {
   data(){
     return{
       menus: [
-        { value: 'whoIs', text: 'Quem Somos' },
         { value: 'videos', text: 'Videoteca' },
         { value: 'articles', text: 'Artigos' },
-        { value: 'ethics', text: 'Código de Ética' },
         { value: 'questions', text: 'Perguntas & Respostas' },
-        { value: 'support', text: 'Suporte Técnico' },
       ],
       menusRegister: [
         { value: 'FormPatient', text: 'Cadastro de Paciente' },

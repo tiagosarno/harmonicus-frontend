@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3>Prezado psicólogo <b-badge variant="danger">Etapa 1 de 3</b-badge></h3>
+    <h3>Prezado psicólogo <b-badge variant="secondary">Etapa 1 de 3</b-badge></h3>
     <p>
       A Harmonicus nasceu com a missão de ajudar pessoas a equilibrarem 
       seus bem estares e para isso contamos com um belo time de profissionais 

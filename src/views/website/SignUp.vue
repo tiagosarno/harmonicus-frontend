@@ -1,6 +1,6 @@
 <template>
   <b-container fluid>
-    <b-alert id="form-alert-register" show variant="dark" class="mt-3 mb-1">
+    <b-alert id="form-alert-register" show variant="secondary" class="mt-3 mb-1">
       <div v-if="component == 'FormPatient'">
         <RegisterPatient />
       </div>
