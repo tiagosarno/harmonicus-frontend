@@ -9,6 +9,7 @@ import Ethics from '../views/website/Ethics.vue'
 import Questions from '../views/website/Questions.vue'
 import Support from '../views/website/Support.vue'
 import Search from '../views/website/Search.vue'
+import PsyPage from '../views/website/PsyPage.vue'
 
 Vue.use(VueRouter)
 
@@ -17,7 +18,7 @@ const routes = [
     path: '/',
     name: 'home',
     component: HomePage
-  },
+  },  
   {
     path: '/cadastrar/:component',
     name: 'signUp',
@@ -59,7 +60,13 @@ const routes = [
     path: '/suporte',
     name: 'support',
     component: Support
-  }
+  },
+  {
+    path: '/:page',
+    name: 'psyPage',
+    component: PsyPage,
+    props: true
+  },
   // {
   //   path: '/about',
   //   name: 'About',
