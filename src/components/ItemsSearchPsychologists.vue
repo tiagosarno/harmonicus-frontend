@@ -2,9 +2,9 @@
   <div>
     <hr />
     <div class="container-search-psy">
-      <PsyAvatar />
-      <PsyData />
-      <PsyStatistics />
+      <PsyAvatar link="yes" />
+      <PsyData showName="yes" />
+      <PsyStatistics link="yes" />
       <PsyScheduler />    
     </div>    
   </div>  

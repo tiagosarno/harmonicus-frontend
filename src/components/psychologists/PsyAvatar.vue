@@ -5,14 +5,20 @@
       class="mr-3"
       size="9rem"
       button
+      v-if="link == 'yes'"
       @click="onClick"
       v-b-tooltip.hover title="visitar perfil"></b-avatar>
+    <b-avatar
+      src="https://www.psitto.com.br/wp-content/uploads/2025/12/psicologo-mauricio-dornelas-300x300.jpeg"
+      class="mr-3"
+      size="9rem"      
+      v-else></b-avatar>
   </div>
 </template>
 
 <script>
 export default {
-
+  props: ['link']
 }
 </script>
 

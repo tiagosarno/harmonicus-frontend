@@ -1,7 +1,8 @@
 <template>
     <div class="se-psy-data">
         <b-link 
-            :to="{ name: '' }">
+            :to="{ name: '' }"
+            v-if="showName == 'yes'"> 
             <strong v-b-tooltip.hover.top title="visitar perfil">Rubens Moura Neto</strong>
         </b-link>
         <span>
@@ -13,10 +14,10 @@
                 <b-badge class="mr-2">Depressão</b-badge>
             </p>           
         </span>
-        <b-alert show variant="success" class="mt-2 mb-1">
+        <b-alert show variant="success" class="selection-none mt-2 mb-1">
             <strong>Consulta R$ 99,00</strong>
         </b-alert>        
-        <b-alert show variant="secondary">
+        <b-alert show variant="secondary" class="selection-none">
             <strong>Duração 60 minutos</strong>
         </b-alert>        
     </div>
@@ -24,11 +25,14 @@
 
 <script>
 export default {
-
+    props: ['showName']
 }
 </script>
 
 <style scoped>
+.selection-none{
+    user-select: none;
+}
 .se-psy-data{
   display: flex;
   flex-direction: column;
