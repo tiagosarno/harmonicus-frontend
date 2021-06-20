@@ -65,6 +65,25 @@
             </span>
           </div>
         </b-list-group-item>
+        <b-list-group-item class="d-flex align-items-center">
+          <b-avatar            
+            src="https://media.vittude.com/media/psicologo-heloisa-bernardes-de-oliveira-caiuby_plKtJLy.webp"
+            class="mr-3"
+            size="5rem"
+            button
+            @click="onClick"
+            v-b-tooltip.hover title="visitar perfil"
+          ></b-avatar>
+          <div class="display-flex-column">
+            <b-link :to="{ name: '' }">
+              <strong v-b-tooltip.hover.top title="visitar perfil">Jordana Keller</strong>
+            </b-link>
+            <span class="mr-auto">
+              Psicóloga Clínica
+              <b-badge class="mr-2">Constelação Familiar</b-badge>
+            </span>
+          </div>
+        </b-list-group-item>
       </b-list-group>
     </b-card-body>
     <b-card-footer>

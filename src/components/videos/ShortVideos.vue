@@ -1,15 +1,14 @@
 <template>
   <div>
     <b-card-title>
-      <strong>Vídeoteca</strong> <span>últimos adicionados <b-badge pill>154 vídeos</b-badge></span>
+      <strong>Vídeoteca</strong> <b-badge pill>Acervo atual 154 vídeos</b-badge>
     </b-card-title>
     <b-card-body>
-      <Item />
-      <Item class="mt-2"/>
+      <Item box="no" footer="yes" />
     </b-card-body>
     <b-card-footer>
       <b-link 
-        :to="{ name: '' }">
+        :to="{ name: 'videos' }">
         ver todos <b-icon-chevron-double-right></b-icon-chevron-double-right>
       </b-link>
     </b-card-footer>

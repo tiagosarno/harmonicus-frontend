@@ -1,39 +1,56 @@
 <template>
   <div>
-    <b-card no-body class="overflow-hidden">
-      <b-row no-gutters>
-        <b-col md="6">
-          
-            <b-link 
-              :to="{ name: '' }">              
-              <img src="@/assets/videos/v2.png" 
-                width="260"
-                v-b-tooltip.hover
-                title="Assistir" />
-            </b-link>
-          
-        </b-col>
-        <b-col md="6">
-          <div class="ma-2 mt-2 ml-2 short-video-description">
-            <b-link 
-              :to="{ name: '' }">
-              <strong v-b-tooltip.hover.top title="Assistir">Título do Vídeo</strong>
-            </b-link>
-            <span class="small mb-2">por: <b-link 
-              :to="{ name: '' }">
-              <strong v-b-tooltip.hover.top title="visitar perfil">Rosane M M Rocha</strong>
-            </b-link></span>
-            <span>Breve descrição do vídeo...</span>          
-          </div>
-        </b-col>
-      </b-row>
+    <b-card img-top v-if="box == 'yes'">
+      <b-embed
+        type="iframe"
+        aspect="16by9"
+        src="https://www.youtube.com/embed/xEMejUFlugQ"
+        allowfullscreen></b-embed>
+      <div class="mt-2">
+        <span>por </span><b-link 
+            :to="{ name: 'psyPage', params: { 'page': 'rosanerocha' } }"> 
+            <strong v-b-tooltip.hover.top title="visitar perfil">Rubens Moura Neto</strong>
+        </b-link>
+        <b-card-text>
+          This is a wider card with supporting text below as a natural lead-in to additional content.
+          This card has even longer content than the first.
+        </b-card-text>
+      </div>
+      <template #footer v-if="footer == 'yes'">
+        <small class="text-muted">há 5 dias</small>
+      </template>
+    </b-card>
+    <b-card no-body v-else>
+      <b-embed
+        type="iframe"
+        aspect="16by9"
+        src="https://www.youtube.com/embed/xEMejUFlugQ"
+        allowfullscreen></b-embed>
+      <div class="mt-2 px-2">
+        <span>por </span><b-link 
+            :to="{ name: 'psyPage', params: { 'page': 'rosanerocha' } }"> 
+            <strong v-b-tooltip.hover.top title="visitar perfil">Rubens Moura Neto</strong>
+        </b-link>
+        <b-card-text>
+          This is a wider card with supporting text below as a natural lead-in to additional content.
+          This card has even longer content than the first.
+        </b-card-text>
+      </div>
+      <template #footer v-if="footer == 'yes'">
+        <small class="text-muted">há 5 dias</small>
+      </template>
     </b-card>
   </div>
 </template>
 
 <script>
 export default {
-  
+  props: ['box','footer'],
+  computed: {
+    itemStyle() {
+      return 'img-top';
+    }
+  }
 };
 </script>
 
