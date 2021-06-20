@@ -11,7 +11,7 @@
             <PsyScheduler />    
           </div>
           <div class="mt-4">
-            <b-tabs content-class="mt-3">
+            <b-tabs card content-class="mt-3">
               <b-tab 
                 title="Biografia" 
                 active><PsyBiography /></b-tab>
