@@ -1,49 +1,47 @@
 <template>
   <div>
-    <b-card>
-      <b-row>
-        <b-col md="2">
-          <b-link
-            v-b-tooltip.hover.bottom
-            title="Baixar PDF"
-            :to="{ name: '' }"
-          >
-            <b-icon-file-earmark-fill
-              variant="danger"
-              font-scale="6"
-            ></b-icon-file-earmark-fill>
-          </b-link>
-        </b-col>
-        <b-col md="10">
-          <div class="ma-2 mt-2 ml-2 short-video-description">
-            <b-link :to="{ name: '' }">
-              <strong v-b-tooltip.hover.top title="Baixar PDF"
-                >Título do Artigo</strong
-              >
-            </b-link>
-            <span class="small mb-2"
-              >por:
-              <b-link :to="{ name: '' }">
-                <strong v-b-tooltip.hover.top title="visitar perfil"
-                  >Rosane M M Rocha</strong
-                >
-              </b-link></span
-            >
+    <b-card
+        border-variant="secondary"
+        align="center">
+        <b-card-text>
+          <div class="ma-2 mt-2 ml-2 description">
+            <h4>Título do Artigo</h4>
+            <span class="small mb-2">por:
+              <b-link 
+                :to="{ name: 'psyPage', params: { 'page': 'rosanerocha' } }"> 
+                <strong 
+                  v-b-tooltip.hover.top 
+                  title="visitar perfil">Rosane M M Rocha</strong>
+              </b-link>, há 3 meses</span>
             <span>Breve descrição do artigo...</span>
           </div>
-        </b-col>
-      </b-row>
+        </b-card-text>
+        <b-card-footer>
+          <b-button
+            variant="danger"
+            @click="downloadArticle('teste.pdf')">
+            DOWNLOAD PDF</b-button>          
+          </b-card-footer>
     </b-card>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  methods: {
+    downloadArticle(file){
+      console.log(file)
+    }
+  }
+};
 </script>
 
 <style lang="scss">
-.short-video-description {
+.description {
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
+.text-link{ color: white; }
 </style>
