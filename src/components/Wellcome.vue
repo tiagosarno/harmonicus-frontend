@@ -87,7 +87,7 @@
       </b-list-group>
     </b-card-body>
     <b-card-footer>
-      <b-link :to="{ name: '' }">
+      <b-link :to="{ name: 'search' }">
         ver todos <b-icon-chevron-double-right></b-icon-chevron-double-right>
       </b-link>
     </b-card-footer>
