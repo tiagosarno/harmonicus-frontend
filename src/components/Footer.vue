@@ -87,16 +87,24 @@
             <img src="@/assets/harmonicus-white.png" height="160" />
             <b-button-group class="mt-3">
               <b-button
-                @click="accessInstagram"
-                variant="secondary"
+                @click="accessWhatsApp"
+                variant="dark"
                 v-b-tooltip.hover
-                title="Suporte WhatsApp"
+                title="Acessar o suporte via WhatsApp"
               >
                 <b-icon-phone></b-icon-phone>
               </b-button>
               <b-button
+                @click="accessFacebook"
+                variant="dark"
+                v-b-tooltip.hover
+                title="Curta nossa página no Facebook"
+              >
+                <b-icon-facebook></b-icon-facebook>
+              </b-button>
+              <b-button
                 @click="accessInstagram"
-                variant="secondary"
+                variant="dark"
                 v-b-tooltip.hover
                 title="Siga-nos no Instagram"
               >
@@ -104,7 +112,7 @@
               </b-button>
               <b-button
                 @click="accessYouTube"
-                variant="secondary"
+                variant="dark"
                 v-b-tooltip.hover
                 title="Acesse nosso YouTube"
               >
@@ -133,6 +141,12 @@ export default {
     }
   },
   methods: {
+    accessWhatsApp() {
+      window.open("http://instagram.com/harmonicus.psi", "_blank");
+    },
+    accessFacebook() {
+      window.open("http://facebook.com/harmonicuspsi", "_blank");
+    },
     accessInstagram() {
       window.open("http://instagram.com/harmonicus.psi", "_blank");
     },
