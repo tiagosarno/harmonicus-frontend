@@ -4,7 +4,7 @@
     <ul>
       <li>
         Este cadastro é necessário para que você possa realizar agendamentos de
-        <strong>terapias on-line</strong> com nossos psicólogos.
+        <strong>psicoterapias on-line</strong> com nossos psicólogos.
       </li>
       <li>
         Não serão cobradas taxas nem mensalidades por este cadastro, com ele 
