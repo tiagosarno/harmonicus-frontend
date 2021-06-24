@@ -18,8 +18,7 @@
         </b-row>
       </b-col>
       <b-col md="4" class="menu" align-self="center">
-        <MenuUser v-if="authenticated" />
-        <Menu v-else />
+        <Menu />
       </b-col>
     </b-row>
     <Search />
@@ -28,14 +27,12 @@
 
 <script>
 import Menu from "./Menu.vue";
-import MenuUser from "./MenuUser.vue";
 import Search from "./Search.vue";
 
 export default {
-  components: { Menu, MenuUser, Search },
+  components: { Menu, Search },
   data() {
-    return {
-      authenticated: false,
+    return {      
       sizeLogo: 200,
     };
   },
