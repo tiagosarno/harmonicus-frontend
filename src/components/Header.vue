@@ -10,8 +10,8 @@
             <strong class="t-slogan">O Equilíbro</strong><br />
             <span class="t-slogan">do seu bem estar</span><br />
             <span class="subtitle">
-              Plataforma para a realização de terapias on-line. Conte com um 
-              acervo relevante de vídeos e artigos desenvolvidos por nossos 
+              Plataforma para a realização de psicoterapias on-line. Conte com um 
+              acervo relevante de vídeos e artigos criados por nossos 
               profissionais.
             </span>
           </b-col>

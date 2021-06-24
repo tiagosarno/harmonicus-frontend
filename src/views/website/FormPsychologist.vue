@@ -20,6 +20,16 @@
               name="frm-pa-gender"
               required></b-form-radio-group>
           </b-form-group>
+          <b-form-group
+            label="Data de Nascimento:"
+            class="mt-3">
+            <b-form-input
+              id="frm-pa-birthdate"
+              v-model="form.birthDate"
+              type="date"
+              required
+              class="mt-2"></b-form-input>
+          </b-form-group>
           <b-form-input
             id="frm-pa-email"
             v-model="form.email"
@@ -35,19 +45,6 @@
             required
             class="mt-2"></b-form-input>
           <b-form-input
-            id="frm-pa-crp"
-            v-model="form.crp"
-            type="number"
-            placeholder="Informe o seu CRP"
-            required
-            class="mt-2"></b-form-input>
-          <b-form-select
-            id="frm-pa-statecrp"
-            v-model="form.stateCrp"
-            :options="itemsStateCrp"
-            required
-            class="mt-2"></b-form-select>
-          <b-form-input
             id="frm-pa-phone"
             v-model="form.phone"
             type="number"
@@ -59,30 +56,107 @@
             v-model="form.phoneIsWhatsApp">
             Este número é meu WhatsApp
           </b-form-checkbox>
-          <b-form-group
-            label="Data de Nascimento:"
-            class="mt-3">
-            <b-form-input
-              id="frm-pa-birthdate"
-              v-model="form.birthDate"
-              type="date"
-              required
-              class="mt-2"></b-form-input>
-          </b-form-group>
+          <b-form-input
+            id="frm-pa-crp"
+            v-model="form.crp"
+            type="text"
+            placeholder="Informe o seu CRP"
+            required
+            class="mt-2"></b-form-input>
+          <b-form-select
+            id="frm-pa-statecrp"
+            v-model="form.stateCrp"
+            :options="itemsStateCrp"
+            required
+            class="mt-2"></b-form-select>
+          <b-alert 
+            show 
+            variant="secondary"
+            class="mt-2">
+            <h5><b-badge variant="dark">Documentos Obrigatórios</b-badge></h5>
+
+            <b-form-file
+              class="mt-2"
+              v-model="form.file1"
+              :state="Boolean(form.file1)"
+              placeholder="Fotografia 3x4"
+              drop-placeholder="Fotografia 3x4"
+              browse-text="Selecionar"></b-form-file>
+            <b-form-file
+              class="mt-2"
+              v-model="form.file1"
+              :state="Boolean(form.file1)"
+              placeholder="Certidão de Regularidade de Inscrição de Pessoa Física"
+              drop-placeholder="Certidão de Regularidade de Inscrição de Pessoa Física"
+              browse-text="Selecionar">
+              </b-form-file>
+            <b-form-file
+              class="mt-2"
+              v-model="form.file1"
+              :state="Boolean(form.file1)"
+              placeholder="Cópia do CRP"
+              drop-placeholder="Cópia do CRP, arraste e solte aqui..."
+              browse-text="Selecionar"></b-form-file>
+            <b-form-file
+              class="mt-2"
+              v-model="form.file1"
+              :state="Boolean(form.file1)"
+              placeholder="Comprovante de endereço"
+              drop-placeholder="Comprovante do endereço"
+              browse-text="Selecionar"></b-form-file>
+            <b-form-file
+              class="mt-2"
+              v-model="form.file1"
+              :state="Boolean(form.file1)"
+              placeholder="Cópia do RG e CPF"
+              drop-placeholder="Cópia do RG e CPF"
+              browse-text="Selecionar"></b-form-file>            
+
+            
+
+          </b-alert>
         </b-card>
         <b-card>
+          <b-form-input
+            id="frm-pa-phone"
+            v-model="form.cep"
+            type="number"
+            placeholder="CEP"
+            required
+            class="mt-2"></b-form-input>
           <b-form-select
             id="frm-pa-state"
             v-model="form.state"
             :options="itemsState"
             required
             class="mt-2"></b-form-select>
-          <b-form-input
-            id="frm-pa-addresscity"
+          <b-form-select
+            id="frm-pa-state"
             v-model="form.city"
-            placeholder="Cidade"
+            :options="itemsCity"
+            required
+            class="mt-2"></b-form-select>          
+          <b-form-input
+            id="frm-pa-address"
+            v-model="form.address"
+            type="text"
+            placeholder="Endereço"
             required
             class="mt-2"></b-form-input>
+          <b-form-input
+            id="frm-pa-complement"
+            v-model="form.district"
+            type="text"
+            placeholder="Complemento"
+            required
+            class="mt-2"></b-form-input>          
+          <b-form-input
+            id="frm-pa-district"
+            v-model="form.district"
+            type="text"
+            placeholder="Bairro"
+            required
+            class="mt-2"></b-form-input>          
           <b-form-select
             id="frm-pa-howfindharmonicus"
             v-model="form.howFindHarmonicus"
@@ -91,16 +165,17 @@
             class="mt-2"></b-form-select>
           <b-form-group
             class="mt-3"
-            label="Qual das ferramentas re reunião on-line você conhece?"
-            v-slot="{ ariaApplications }">
-            <b-form-checkbox-group
-              v-model="form.chatApplications"
-              :options="optionsChatApplications"
-              :aria-describedby="ariaApplications"
-              name="chatNetworks"
-              required></b-form-checkbox-group>
-          </b-form-group>
-          <b-alert show variant="danger">
+            label="Você possui familiaridade com a agenda do Google e com a ferramenta 'Google Meet'?"
+            v-slot="{ ariaMeet }">
+            <b-form-radio-group
+              v-model="form.googleMeet"
+              :options="optionsGoogleMeet"
+              :aria-describedby="ariaMeet"
+              name="frm-pa-gender"
+              required></b-form-radio-group>
+          </b-form-group>          
+          <b-alert show variant="secondary">
+            <h5><b-badge variant="dark">Termos de Aceite</b-badge></h5>
             <p class="mb-1">
               <a href="/files/termos-de-uso.pdf" 
                 target="_blank">Clique para ler o "Termo de Uso"</a></p>
@@ -152,17 +227,25 @@ export default {
         name: null,
         howFindHarmonicus: null,
         state: null,
-        chatApplications: [],
+        googleMeet: null,
         gender: [],
         phoneIsWhatsApp: "",
         city: null,
+        address: null,
+        district: null,
+        cep: null,
         crp: null,
         stateCrp: null,
         docs: null,
+        file1: [],
       },
       itemsState: [
         { value: null, text: "Selecione o seu Estado (UF)", disabled: true },
         { value: "GO", text: "Goiás" },
+      ],
+      itemsCity: [
+        { value: null, text: "Selecione sua Cidade", disabled: true },
+        { value: "GO", text: "Goiânia" },
       ],
       itemsStateCrp: [
         { value: null, text: "Selecione o estado do seu CRP", disabled: true },
@@ -171,14 +254,16 @@ export default {
       itemsHowFind: [
         {
           value: null,
-          text: "Ajude-nos. Como conheceu Harmonicus?",
+          text: "Ajude-nos! Como conheceu a Harmonicus?",
           disabled: true,
         },
         { value: 1, text: "Indicação de outro paciente" },
         { value: 2, text: "Indicação de psicólogo da plataforma" },
+        { value: 3, text: "Propaganda em Congresso" },
         { value: 3, text: "Propaganda no Instagram" },
         { value: 4, text: "Propaganda no Facebook" },
-        { value: 5, text: "Pesquisa no Google" },
+        { value: 5, text: "Propaganda na Rádio FM" },
+        { value: 6, text: "Pesquisa no Google" },
       ],
       optionsChatApplications: [
         { text: "Microsoft Teams", value: 1 },
@@ -197,6 +282,10 @@ export default {
         { value: 2, text: 'Li e estou de acordo com o cógido de ética da profissão' },
         { value: 3, text: 'Li e aceito toda política de privacidade' },
         { value: 4, text: 'Li e estou ciente de todas as formas de contato' },
+      ],
+      optionsGoogleMeet: [
+        { value: 'S', text: 'Sim' },
+        { value: 'N', text: 'Não' }
       ],
     };
   },
