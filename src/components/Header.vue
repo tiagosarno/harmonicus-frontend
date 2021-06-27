@@ -19,6 +19,7 @@
       </b-col>
       <b-col md="4" class="menu" align-self="center">
         <Menu />
+        <ModalAccess />
       </b-col>
     </b-row>
     <Search />
@@ -28,9 +29,10 @@
 <script>
 import Menu from "./Menu.vue";
 import Search from "./Search.vue";
+import ModalAccess from "./ModalAccess.vue"
 
 export default {
-  components: { Menu, Search },
+  components: { Menu, Search, ModalAccess },
   data() {
     return {      
       sizeLogo: 200,

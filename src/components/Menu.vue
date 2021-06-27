@@ -28,14 +28,15 @@
       <b-button
         v-if="!authenticated"
         id="tooltip-access" 
-        variant="primary">
+        variant="primary"
+        @click="$bvModal.show('modal-access')">
         Entrar&nbsp;<b-icon-people-fill></b-icon-people-fill>
       </b-button>
       <b-tooltip 
         target="tooltip-access" 
         triggers="hover">
         Acessar o Sistema<br />
-        <strong>Pacientes</strong> & <strong>Psicólogos</strong>
+        <strong>Pacientes</strong> & <strong>Profissionais</strong>
       </b-tooltip>
     </b-button-group>
     <b-avatar
