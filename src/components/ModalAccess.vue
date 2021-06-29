@@ -12,6 +12,10 @@
     </template>    
     <div class="d-block">
         <h4 v-if="rememberPassword" class="text-center"><b-badge variant="warning">Processo de recuperação de acesso</b-badge></h4>
+        <span v-if="rememberPassword" class="text-center">
+            Informe o seu e-mail cadastrado no campo abaixo para receber um link onde você
+            poderá gerar uma nova senha de acesso.
+        </span>
         <form class="mt-4" ref="formAccess" @submit.stop.prevent="handleSubmit">
             <b-form-group
                 label="E-mail"
