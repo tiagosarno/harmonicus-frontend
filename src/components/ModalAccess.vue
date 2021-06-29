@@ -91,17 +91,16 @@ export default {
             if (!this.checkFormValidity()) {
                 return
             }
-            
-            // FIXME, register e-mail on backEnd
-            console.log(this.email)
-            
-            this.msg = `Inclusão do e-mail "${this.email}" realizada com sucesso`
+                        
+            // this.msg = `Inclusão do e-mail "${this.email}" realizada com sucesso`
             this.email = ''
             this.password = ''
 
-            // Hide the modal manually
+            // Success Access, auto-hide the modal
             setTimeout(()=>{  
-                this.rememberPassword = false              
+                this.rememberPassword = false     
+                this.$store.commit('changeRenderAdmin', true)
+                this.$router.push('/admin')         
                 this.$bvModal.hide('modal-access')
             }, 2000)
         }
