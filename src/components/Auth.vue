@@ -128,15 +128,21 @@ export default {
                         value: this.email,
                         first: true
                     }).then(response => {    
-                        if(response.data.id_admin !== null) {
+                        if(response.data.id_admin != null
+                            && response.data.id_psychologist == null
+                            && response.data.id_patient == null) {
                             console.log('admin access')
                             localStorage.setItem(userTypeAccess, 'admin')
                         }
-                        else if(response.data.id_psychologist !== null) {
+                        else if(response.data.id_psychologist != null
+                                    && response.data.id_admin == null
+                                    && response.data.id_patient == null) {
                             console.log('psy access')
                             localStorage.setItem(userTypeAccess, 'psychologist')
                         }
-                        else if(response.data.id_patient !== null) {
+                        else if(response.data.id_patient != null
+                                    && response.data.id_admin == null
+                                    && response.data.id_psychologist == null) {
                             console.log('patient access')
                             localStorage.setItem(userTypeAccess, 'patient')
                         }

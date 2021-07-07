@@ -22,7 +22,7 @@
                     size="2rem"></b-avatar>
                 <em>Rosane M M Rocha</em>
             </template>
-            <b-dropdown-item href="#">Editar Perfil</b-dropdown-item>
+            <b-dropdown-item :to="{ name: 'admin-profile' }">Editar Perfil</b-dropdown-item>
             <b-dropdown-item @click="logout">Sair do Sistema</b-dropdown-item>
             </b-nav-item-dropdown>
         </b-navbar-nav>

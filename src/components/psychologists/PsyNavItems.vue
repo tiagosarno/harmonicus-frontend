@@ -1,50 +1,50 @@
 <template>
   <b-navbar-nav>
-    <b-nav-item href="#">Home</b-nav-item>
+    <b-nav-item :to="{ name: 'admin-dashboard' }">Painel</b-nav-item>
     <b-nav-item-dropdown text="Consultório" left>      
-      <b-dropdown-item href="#">
+      <b-dropdown-item :to="{ name: 'admin-psi-dates-and-hours' }">
         <b-icon-caret-right-fill></b-icon-caret-right-fill>
-        Datas & Horários
+        Datas e horários
       </b-dropdown-item>
-      <b-dropdown-item href="#">
+      <b-dropdown-item :to="{ name: 'admin-psi-financial' }">
         <b-icon-caret-right-fill></b-icon-caret-right-fill>
-        Produtos (pacotes)
+        Financeiro
       </b-dropdown-item>
-      <b-dropdown-item href="#">
+      <b-dropdown-item :to="{ name: 'admin-psi-products' }">
+        <b-icon-caret-right-fill></b-icon-caret-right-fill>
+        Produtos
+      </b-dropdown-item>
+      <b-dropdown-item :to="{ name: 'admin-psi-my-patients' }">
         <b-icon-caret-right-fill></b-icon-caret-right-fill>
         Pacientes
       </b-dropdown-item>
-      <b-dropdown-item href="#">
-        <b-icon-gem></b-icon-gem>
-        Gestão Financeira
+      <b-dropdown-item :to="{ name: 'admin-psi-stop-clinic' }">
+        <b-icon-caret-right-fill></b-icon-caret-right-fill>
+        Pausar consultório
       </b-dropdown-item>
     </b-nav-item-dropdown>
     <b-nav-item-dropdown text="Consultas" left>
-      <b-dropdown-item href="#">
+      <b-dropdown-item :to="{ name: 'admin-psi-evaluations' }">
         <b-icon-caret-right-fill></b-icon-caret-right-fill>
         Avaliações
       </b-dropdown-item>
-      <b-dropdown-item href="#">
+      <b-dropdown-item :to="{ name: 'admin-psi-schedules' }">
         <b-icon-caret-right-fill></b-icon-caret-right-fill>
-        Meus agendamentos
-      </b-dropdown-item>
-      <b-dropdown-item href="#">
-        <b-icon-caret-right-fill></b-icon-caret-right-fill>
-        Pausar consultas
-      </b-dropdown-item>
+        Agendamentos
+      </b-dropdown-item>      
     </b-nav-item-dropdown>
     <b-nav-item-dropdown text="Estatísticas" left>      
-      <b-dropdown-item href="#">
+      <b-dropdown-item :to="{ name: 'admin-psi-statistics' }">
         <b-icon-caret-right-fill></b-icon-caret-right-fill>
         Painel de estatísticas
       </b-dropdown-item>
-      <b-dropdown-item href="#">
+      <b-dropdown-item :to="{ name: 'admin-psi-visitor-funnel' }">
         <b-icon-caret-right-fill></b-icon-caret-right-fill>
         Meu funil de visitas
       </b-dropdown-item>
     </b-nav-item-dropdown>
     <b-nav-item-dropdown text="Conteúdos" left>
-      <b-dropdown-item href="#">
+      <b-dropdown-item :to="{ name: 'admin-psi-articles' }">
         <b-icon-caret-right-fill></b-icon-caret-right-fill>
         Meus artigos
       </b-dropdown-item>
@@ -53,9 +53,9 @@
         Meus vídeos
       </b-dropdown-item>
     </b-nav-item-dropdown>
-    <b-nav-item href="#">
+    <b-nav-item :to="{ name: 'admin-psi-messages' }">
       Mensagens</b-nav-item>
-    <b-nav-item href="#">
+    <b-nav-item :to="{ name: 'admin-psi-support' }">
       Suporte Técnico</b-nav-item>
   </b-navbar-nav>
 </template>

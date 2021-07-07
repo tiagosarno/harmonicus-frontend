@@ -13,8 +13,22 @@ import PsyPage from '../views/website/PsyPage.vue'
 
 import Index from '../views/admin/Index.vue'
 import Dashboard from '../views/admin/Dashboard.vue'
+import AdmProfile from '../views/admin/Profile.vue'
 
+import PsyArticles from '../views/admin/psychologist/Articles.vue'
+import PsyDatesAndHours from '../views/admin/psychologist/DatesAndHours.vue'
+import PsyEvaluations from '../views/admin/psychologist/Evaluations.vue'
+import PsyFinancial from '../views/admin/psychologist/Financial.vue'
+import PsyMyPatients from '../views/admin/psychologist/MyPatients.vue'
+import PsyProducts from '../views/admin/psychologist/Products.vue'
+import PsySchedules from '../views/admin/psychologist/Schedules.vue'
+import PsyStatistics from '../views/admin/psychologist/Statistics.vue'
+import PsyStopClinic from '../views/admin/psychologist/StopClinic.vue'
 import PsyVideos from '../views/admin/psychologist/Videos.vue'
+import PsyVisitorFunnel from '../views/admin/psychologist/VisitorFunnel.vue'
+import PsyMessages from '../views/admin/psychologist/Messages.vue'
+import PsySupport from '../views/admin/psychologist/Support.vue'
+
 
 Vue.use(VueRouter)
 
@@ -72,21 +86,29 @@ const routes = [
     props: true,
     children: [
       { path: '', component: Dashboard, name: 'admin-dashboard', props: true },
+      { path: '/profile', name: 'admin-profile', component: AdmProfile, props: true },
+      
+      { path: '/pa-agendamentos', component: Dashboard, props: true },
+      { path: '/pa-dependentes', component: Dashboard, props: true },
+      { path: '/pa-mensagens', component: Dashboard, props: true },
+      { path: '/pa-suporte', component: Dashboard, props: true },
+
       { path: '/super-artigos', component: Dashboard, props: true },
       { path: '/super-videos', component: Dashboard, props: true },
       { path: '/super-custos', component: Dashboard, props: true },
       { path: '/super-movimentacoes', component: Dashboard, props: true },
       { path: '/super-estatisticas', component: Dashboard, props: true },
-      { path: '/psi-datas-horarios', component: Dashboard, props: true },
-      { path: '/psi-produtos', component: Dashboard, props: true },
-      { path: '/psi-pacientes', component: Dashboard, props: true },
-      { path: '/psi-gestao-financeira', component: Dashboard, props: true },
-      { path: '/psi-avaliacoes', component: Dashboard, props: true },
-      { path: '/psi-agendamentos', component: Dashboard, props: true },
-      { path: '/psi-pausar-consulas', component: Dashboard, props: true },
-      { path: '/psi-estatisticas', component: Dashboard, props: true },
-      { path: '/psi-funil-visitas', component: Dashboard, props: true },
-      { path: '/psi-artigos', component: Dashboard, props: true },
+
+      { path: '/psi-datas-horarios', name: 'admin-psi-dates-and-hours', component: PsyDatesAndHours, props: true },
+      { path: '/psi-produtos', name: 'admin-psi-products', component: PsyProducts, props: true },
+      { path: '/psi-pacientes', name: 'admin-psi-my-patients', component: PsyMyPatients, props: true },
+      { path: '/psi-gestao-financeira', name: 'admin-psi-financial', component: PsyFinancial, props: true },
+      { path: '/psi-avaliacoes', name: 'admin-psi-evaluations', component: PsyEvaluations, props: true },
+      { path: '/psi-agendamentos', name: 'admin-psi-schedules', component: PsySchedules, props: true },
+      { path: '/psi-pausar-consultorio', name: 'admin-psi-stop-clinic', component: PsyStopClinic, props: true },
+      { path: '/psi-estatisticas', name: 'admin-psi-statistics', component: PsyStatistics, props: true },
+      { path: '/psi-funil-visitas', name: 'admin-psi-visitor-funnel', component: PsyVisitorFunnel, props: true },
+      { path: '/psi-artigos', name: 'admin-psi-articles', component: PsyArticles, props: true },      
       { 
         path: '/psi-videos',
         name: 'admin-psi-videos', 
@@ -96,12 +118,8 @@ const routes = [
           { path: ':id', component: PsyVideos, props: true },
         ]
       },
-      { path: '/psi-mensagens', component: Dashboard, props: true },
-      { path: '/psi-suporte', component: Dashboard, props: true },
-      { path: '/pa-agendamentos', component: Dashboard, props: true },
-      { path: '/pa-dependentes', component: Dashboard, props: true },
-      { path: '/pa-mensagens', component: Dashboard, props: true },
-      { path: '/pa-suporte', component: Dashboard, props: true },
+      { path: '/psi-mensagens', name: 'admin-psi-messages', component: PsyMessages, props: true },
+      { path: '/psi-suporte', name: 'admin-psi-support', component: PsySupport, props: true },
     ]
   },
   {
