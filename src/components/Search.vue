@@ -85,6 +85,7 @@ import { mapGetters } from 'vuex'
 export default {
   data() {
     return {
+      newValue: null,
       selected: true,
       frmAge: null,
       ageOptions: [
@@ -128,9 +129,17 @@ export default {
       ],
     };
   },
-  computed: mapGetters({
-    showSearch: 'showSearch'
-  }),
+  computed: {
+    ...mapGetters({
+      showSearch: 'showSearch'
+    }),
+    showSearch: {
+      get(){
+        return this.$store.state.showSearch
+      },
+      set(){}
+    }
+  },
   methods: {
     initSearch() {
       this.$router.push('pesquisa')

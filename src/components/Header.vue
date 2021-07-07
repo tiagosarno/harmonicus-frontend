@@ -19,7 +19,7 @@
       </b-col>
       <b-col md="4" class="menu" align-self="center">
         <Menu />
-        <ModalAccess />
+        <Auth />
       </b-col>
     </b-row>
     <Search />
@@ -29,10 +29,10 @@
 <script>
 import Menu from "./Menu.vue";
 import Search from "./Search.vue";
-import ModalAccess from "./ModalAccess.vue"
+import Auth from "./Auth.vue"
 
 export default {
-  components: { Menu, Search, ModalAccess },
+  components: { Menu, Search, Auth },
   data() {
     return {      
       sizeLogo: 200,
@@ -41,20 +41,24 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 .logo {
   margin-left: 10px;
+  user-select: none;
 }
 .slogan {
   display: flex;
+  user-select: none;
 }
 .t-slogan {
   font-size: 3.2rem;
   color: #023770;
   line-height: 100%;
+  user-select: none;
 }
 .subtitle {  
   color: #333;
+  user-select: none;
 }
 .b-avatar .b-avatar-img img {
   border: 2px solid #683c10;

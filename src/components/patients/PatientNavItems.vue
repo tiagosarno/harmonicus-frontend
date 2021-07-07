@@ -3,16 +3,16 @@
     <b-nav-item href="#">
       Home</b-nav-item>
     <b-nav-item href="#">
-      <b-icon-caret-right-fill></b-icon-caret-right-fill>
+      <b-icon-calendar2-day-fill></b-icon-calendar2-day-fill>
       Agendamentos</b-nav-item>
     <b-nav-item href="#">
-      <b-icon-caret-right-fill></b-icon-caret-right-fill>
+      <b-icon-person-plus-fill></b-icon-person-plus-fill>
       Dependentes</b-nav-item>
     <b-nav-item href="#">
-      <b-icon-caret-right-fill></b-icon-caret-right-fill>
+      <b-icon-envelope-fill></b-icon-envelope-fill>
       Mensagens</b-nav-item>
     <b-nav-item href="#">
-      <b-icon-caret-right-fill></b-icon-caret-right-fill>
+      <b-icon-tools></b-icon-tools>
       Suporte Técnico</b-nav-item>
   </b-navbar-nav>
 </template>

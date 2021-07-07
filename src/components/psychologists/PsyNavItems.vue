@@ -54,16 +54,18 @@
       </b-dropdown-item>
     </b-nav-item-dropdown>
     <b-nav-item href="#">
-      <b-icon-caret-right-fill></b-icon-caret-right-fill>
       Mensagens</b-nav-item>
     <b-nav-item href="#">
-      <b-icon-caret-right-fill></b-icon-caret-right-fill>
       Suporte Técnico</b-nav-item>
   </b-navbar-nav>
 </template>
 
 <script>
-export default {};
+export default {
+  mounted(){
+    this.$http.get('patient/5').then(res => console.log(res))
+  }
+};
 </script>
 
 <style></style>

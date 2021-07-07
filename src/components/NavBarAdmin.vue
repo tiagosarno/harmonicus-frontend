@@ -7,9 +7,9 @@
         <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
         <b-collapse id="nav-collapse" is-nav>
-        <PsyNavItems v-if="profileAdmin == 'psychologist'" />
-        <PatientNavItems v-if="profileAdmin == 'patient'" />
-        <AdminNavItems v-if="profileAdmin == 'admin'" />
+        <PsyNavItems v-if="renderAdmin.type == 'psychologist'" />
+        <PatientNavItems v-if="renderAdmin.type == 'patient'" />
+        <AdminNavItems v-if="renderAdmin.type == 'admin'" />
 
         <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto">
@@ -32,6 +32,7 @@
 </template>
 
 <script>
+import { userKey, userTypeAccess } from '@/global'
 import { mapGetters } from 'vuex'
 import PsyNavItems from './psychologists/PsyNavItems.vue'
 import PatientNavItems from './patients/PatientNavItems.vue'
@@ -43,16 +44,18 @@ export default {
             
         }
     },
-    created() {
-        this.$store.commit('changeProfileAdmin', 'psychologist')
-    },
     components: { PsyNavItems, PatientNavItems, AdminNavItems },
     computed: mapGetters({
-        profileAdmin: 'profileAdmin'
+        renderAdmin: 'renderAdmin'
     }),
     methods: {
         logout() {
-            this.$store.commit('changeRenderAdmin', false)
+            localStorage.removeItem(userKey)
+            localStorage.removeItem(userTypeAccess)
+            this.$store.commit('changeRenderAdmin', {
+                show: false,
+                type: null
+            })
             this.$router.push('/')
         }
     }

@@ -6,8 +6,10 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     showSearch: true,
-    renderAdmin: false,
-    profileAdmin: null,
+    renderAdmin: {
+      show: false,
+      type: null
+    },
   },
   getters: {
     showSearch(state) {
@@ -16,9 +18,6 @@ export default new Vuex.Store({
     renderAdmin(state) {
       return state.renderAdmin
     },
-    profileAdmin(state) {
-      return state.profileAdmin
-    }
   },
   mutations: {
     changeShowSearch(state, payload) {
@@ -27,9 +26,6 @@ export default new Vuex.Store({
     changeRenderAdmin(state, payload) {
       state.renderAdmin = payload
     },
-    changeProfileAdmin(state, payload) {
-      state.profileAdmin = payload
-    }
   },
   actions: {
   },

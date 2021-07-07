@@ -47,16 +47,16 @@ export default {
   computed: {
     applyMargin() {
       if (this.bsContainerWidth <= 768) {                
-        console.log("mobile");
+        console.log("Device mobile");
         return false
       } else if (this.bsContainerWidth <= 950) {
-        console.log("small");
+        console.log("Device small");
         return false
       } else if (this.bsContainerWidth <= 1170) {
-        console.log("medium");
+        console.log("Device medium");
         return true
       } else {        
-        console.log("large");
+        console.log("Device large");
         return true
       }
     }
