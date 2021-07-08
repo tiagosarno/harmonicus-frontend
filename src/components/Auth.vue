@@ -122,12 +122,19 @@ export default {
                 'email': this.email,
                 'password': this.password
             }).then(res => {
-                if(res.status == 200) {                    
+                console.log(res)
+                if(res.status == 200) {
+
+                    this.$http.defaults.headers.common['Authorization'] = `Bearer ${res.data.access_token}`
+                    localStorage.setItem(userKey, JSON.stringify(res.data))                    
+
                     this.$http.post('/user/search', {
-                        key: 'email',
-                        value: this.email,
-                        first: true
-                    }).then(response => {    
+                        'key': 'email',
+                        'value': this.email,
+                        'first': true
+                    }).then(response => {
+                        console.log(response)    
+    
                         if(response.data.id_admin != null
                             && response.data.id_psychologist == null
                             && response.data.id_patient == null) {
@@ -146,15 +153,15 @@ export default {
                             console.log('patient access')
                             localStorage.setItem(userTypeAccess, 'patient')
                         }
+                        
+                        this.variantAlert = 'success'
+                        this.alertMessage = '<strong>Sucesso!</strong> Carregando sistema..'
+                        this.showAlert = true
                     })
-                    this.variantAlert = 'success'
-                    this.alertMessage = '<strong>Sucesso!</strong> Carregando sistema..'
-                    this.showAlert = true
-                    this.$http.defaults.headers.common['Authorization'] = `Bearer ${res.data.access_token}`
-                    localStorage.setItem(userKey, JSON.stringify(res.data))
-                    this.email = ''
-                    this.password = ''
-                    setTimeout(()=>{  
+                    
+                    setTimeout(()=>{
+                        this.email = ''
+                        this.password = ''
                         this.rememberPassword = false     
                         this.$store.commit('changeRenderAdmin', {
                             show: true,
