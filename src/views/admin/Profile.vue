@@ -4,7 +4,11 @@
       <b-card-text>
         With supporting text below as a natural lead-in to additional content.
       </b-card-text>
-      <b-button href="#" variant="primary">Go somewhere</b-button>
+      <b-button 
+        href="#" 
+        variant="primary">
+        <b-icon-box-arrow-in-down></b-icon-box-arrow-in-down>
+        Salvar Alterações</b-button>
     </b-card>
   </b-container>
 </template>

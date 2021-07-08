@@ -45,6 +45,7 @@
                     v-model="password"
                     placeholder="Informe a sua Senha"
                     :state="passwordState"
+                    @keydown.enter="handleSubmit"
                     required></b-form-input>    
             </b-form-group>        
             <input type="hidden" v-else v-model="rememberPassword" />
