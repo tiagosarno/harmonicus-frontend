@@ -17,7 +17,7 @@
         </b-card-text>
       </div>
       <template #footer>
-        <small class="text-muted">há {{ transformDate }}</small>
+        <small class="text-muted">Postado em {{ transformDate }}</small>
       </template>
     </b-card>
   </div>
