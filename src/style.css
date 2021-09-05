@@ -1,6 +1,7 @@
 body {
   display: grid;
-  background: linear-gradient(to bottom, white 330px, #c6d2df 330px 100%);
+  background: linear-gradient(to bottom, white, #c6d2df 20% 100%);
+  /* background: linear-gradient(to bottom, white 330px, #c6d2df 330px 100%); */
   font-family: "Roboto", sans-serif;
 }
 a {
@@ -15,9 +16,10 @@ h2 {
   font-weight: 600;
   font-family: "Roboto";
 }
-
-@media screen and (max-width: 768px) {
-  body {
-    background: linear-gradient(to bottom, white 400px, #c6d2df 400px 100%);
-  }
+.toasting {
+  border-radius: 5px !important;
+  padding: 20px !important;
+  font-size: 1.2rem !important;
+  font-weight: 300 !important;
+  box-shadow: 0 0 0.5em #485461 !important;
 }

@@ -1,7 +1,7 @@
 <template>
     <div class="se-psy-scheduler">
         <div class="se-psy-tabs">
-            <div class="se-psy-tab-1 bg-scheduler txt-scheduler">Agenda</div>
+            <div class="se-psy-tab-1 bg-scheduler txt-scheduler">Agendar Consulta</div>
         </div>
         <div class="se-psy-content-tabs">
           <PsySchedulerTab1 />

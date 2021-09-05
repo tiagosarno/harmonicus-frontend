@@ -61,10 +61,7 @@
 </template>
 
 <script>
-export default {
-  mounted(){
-    this.$http.get('patient/5').then(res => console.log(res))
-  }
+export default {  
 };
 </script>
 

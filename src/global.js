@@ -1,4 +1,4 @@
 export const userKey = '__knowledge_user'
-export const userTypeAccess = '__type_access'
+export const userAccess = '__type_access'
 
-export default { userKey, userTypeAccess }
+export default { userKey, userAccess }

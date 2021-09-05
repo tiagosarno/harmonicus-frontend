@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import ItemsArticles from '../../components/articles/ItemsArticles.vue'
+import ItemsArticles from '../../components/public/articles/ItemsArticles.vue'
 export default {
   components: { ItemsArticles }
 }

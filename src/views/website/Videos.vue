@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import ItemsVideos from '../../components/videos/ItemsVideos.vue'
+import ItemsVideos from '../../components/public/videos/ItemsVideos.vue'
 export default {
   components: { ItemsVideos }
 }

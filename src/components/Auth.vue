@@ -62,7 +62,7 @@
 </template>
 
 <script>
-import { userKey, userTypeAccess } from '@/global'
+import { userKey, userAccess } from '@/global'
 
 export default {
     data(){
@@ -123,7 +123,7 @@ export default {
                 'email': this.email,
                 'password': this.password
             }).then(res => {
-                console.log(res)
+                console.log('LOGIN', res)
                 if(res.status == 200) {
 
                     this.$http.defaults.headers.common['Authorization'] = `Bearer ${res.data.access_token}`
@@ -140,19 +140,28 @@ export default {
                             && response.data.id_psychologist == null
                             && response.data.id_patient == null) {
                             console.log('admin access')
-                            localStorage.setItem(userTypeAccess, 'admin')
+                            localStorage.setItem(userAccess, JSON.stringify({
+                                type: 'admin',
+                                id: response.data.id_admin
+                            }))
                         }
                         else if(response.data.id_psychologist != null
                                     && response.data.id_admin == null
                                     && response.data.id_patient == null) {
                             console.log('psy access')
-                            localStorage.setItem(userTypeAccess, 'psychologist')
+                            localStorage.setItem(userAccess, JSON.stringify({
+                                type: 'psychologist',
+                                id: response.data.id_psychologist
+                            }))
                         }
                         else if(response.data.id_patient != null
                                     && response.data.id_admin == null
                                     && response.data.id_psychologist == null) {
                             console.log('patient access')
-                            localStorage.setItem(userTypeAccess, 'patient')
+                            localStorage.setItem(userAccess, JSON.stringify({
+                                type: 'patient',
+                                id: response.data.id_patient
+                            }))
                         }
                         
                         this.variantAlert = 'success'
@@ -164,9 +173,11 @@ export default {
                         this.email = ''
                         this.password = ''
                         this.rememberPassword = false     
+                        const _access = localStorage.getItem(userAccess)
+                        const jsonUserAccess = JSON.parse(_access)
                         this.$store.commit('changeRenderAdmin', {
                             show: true,
-                            type: localStorage.getItem(userTypeAccess)
+                            type: jsonUserAccess.type
                         })
                         this.$router.push('/admin')         
                         this.$bvModal.hide('modal-access')

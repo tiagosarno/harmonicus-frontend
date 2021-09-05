@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { userKey, userTypeAccess } from '@/global'
+import { userKey, userAccess } from '@/global'
 import { mapGetters } from 'vuex'
 import Header from '@/components/Header.vue'
 import Footer from '@/components/Footer.vue'
@@ -30,18 +30,22 @@ export default {
       const json = localStorage.getItem(userKey)
       const userData = JSON.parse(json)      
 
-      const usarAccess = localStorage.getItem(userTypeAccess)
+      const _access = localStorage.getItem(userAccess)
+      const jsonUserAccess = JSON.parse(_access)
 
-      if(!userData && !usarAccess) {
+      console.log(jsonUserAccess.type)
+
+      if(!userData && !jsonUserAccess) {
         this.$store.commit('changeRenderAdmin', {
           show: false,
           type: null
         })
       }
       else{
+        this.$http.defaults.headers.common['Authorization'] = `Bearer ${userData.access_token}`
         this.$store.commit('changeRenderAdmin', {
           show: true,
-          type: usarAccess
+          type: jsonUserAccess.type
         })
       }
       this.validatingToken = false

@@ -18,9 +18,9 @@
             <template #button-content>
                 <b-avatar
                     class="mr-2"
-                    src="https://www.psitto.com.br/wp-content/uploads/2025/12/psicologo-mauricio-dornelas-300x300.jpeg"
+                    :src="avatar"
                     size="2rem"></b-avatar>
-                <em>Rosane M M Rocha</em>
+                <em>{{ name }}</em>
             </template>
             <b-dropdown-item :to="{ name: 'admin-profile' }">Editar Perfil</b-dropdown-item>
             <b-dropdown-item @click="logout">Sair do Sistema</b-dropdown-item>
@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import { userKey, userTypeAccess } from '@/global'
+import { userKey, userAccess } from '@/global'
 import { mapGetters } from 'vuex'
 import PsyNavItems from './psychologists/PsyNavItems.vue'
 import PatientNavItems from './patients/PatientNavItems.vue'
@@ -41,7 +41,8 @@ import AdminNavItems from './admin/AdminNavItems.vue'
 export default {
     data(){
         return {
-            
+            name: null,
+            avatar: null
         }
     },
     components: { PsyNavItems, PatientNavItems, AdminNavItems },
@@ -51,13 +52,22 @@ export default {
     methods: {
         logout() {
             localStorage.removeItem(userKey)
-            localStorage.removeItem(userTypeAccess)
+            localStorage.removeItem(userAccess)
             this.$store.commit('changeRenderAdmin', {
                 show: false,
                 type: null
             })
             this.$router.push('/')
         }
+    },
+    created() {
+        const _access = localStorage.getItem(userAccess)
+        const jsonUserAccess = JSON.parse(_access)
+        this.$http.get(`/${jsonUserAccess.type}/${jsonUserAccess.id}`, {})
+            .then(res => {                
+                this.name = res.data.name
+                this.avatar = res.data.file_avatar
+        })
     }
 }
 </script>

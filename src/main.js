@@ -2,6 +2,7 @@ import './style.css'
 import '@babel/polyfill'
 import 'mutationobserver-shim'
 import Vue from 'vue'
+import './plugins/fontawesome'
 import './plugins/bootstrap-vue'
 import './plugins/axios'
 import App from './App.vue'
@@ -9,6 +10,7 @@ import './registerServiceWorker'
 import router from './router'
 import store from './store'
 import global from './global'
+import './msg'
 
 Vue.config.productionTip = false
 

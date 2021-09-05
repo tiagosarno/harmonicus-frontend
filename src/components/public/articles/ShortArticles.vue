@@ -1,14 +1,15 @@
 <template>
   <div>
     <b-card-title>
-      <strong>Vídeoteca</strong> <b-badge pill>Acervo atual 154 vídeos</b-badge>
+      <strong>Artigos</strong> <b-badge pill>Acervo atual de 46 artigos</b-badge>
     </b-card-title>
     <b-card-body>
-      <Item box="no" footer="yes" />
+      <Item />
+      <Item class="mt-2" />
     </b-card-body>
     <b-card-footer>
       <b-link 
-        :to="{ name: 'videos' }">
+        :to="{ name: 'articles' }">
         ver todos <b-icon-chevron-double-right></b-icon-chevron-double-right>
       </b-link>
     </b-card-footer>
@@ -20,9 +21,7 @@ import Item from './Item.vue'
 
 export default {
   components: { Item }
-}
+};
 </script>
 
-<style>
-
-</style>
+<style></style>

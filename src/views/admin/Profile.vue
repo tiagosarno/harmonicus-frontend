@@ -1,21 +1,31 @@
 <template>
   <b-container class="mt-3" fluid>
-    <b-card bg-variant="outline-dark" text-variant="dark" title="Perfil">
-      <b-card-text>
-        With supporting text below as a natural lead-in to additional content.
-      </b-card-text>
-      <b-button 
-        href="#" 
-        variant="primary">
-        <b-icon-box-arrow-in-down></b-icon-box-arrow-in-down>
-        Salvar Alterações</b-button>
-    </b-card>
+    <component :is="component" />    
   </b-container>
 </template>
 
 <script>
-export default {
+import { userAccess } from '@/global'
+import PsyFormProfile from './psychologist/FormProfile.vue'
+import PatientFormProfile from './patient/FormProfile.vue'
 
+export default {
+  components: { PsyFormProfile, PatientFormProfile },
+  data() {
+    return {
+      component: null,
+    }
+  },
+  created() {
+    const _access = localStorage.getItem(userAccess)
+    const jsonUserAccess = JSON.parse(_access)
+    if(jsonUserAccess.type == 'psychologist') {
+      this.component = 'PsyFormProfile'
+    }
+    else if(jsonUserAccess.type == 'patient') {
+      this.component = 'PatientFormProfile'
+    }
+  }
 }
 </script>
 

@@ -29,8 +29,8 @@
 </template>
 
 <script>
-import ShortArticles from "../../components/articles/ShortArticles.vue";
-import ShortVideos from "../../components/videos/ShortVideos.vue";
+import ShortArticles from "../../components/public/articles/ShortArticles.vue";
+import ShortVideos from "../../components/public/videos/ShortVideos.vue";
 import Wellcome from "../../components/Wellcome.vue";
 import WhoIsHarmonicus from "../../components/WhoIsHarmonicus.vue";
 
