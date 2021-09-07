@@ -23,10 +23,11 @@
           Vídeo Publicado
         </b-button>
         <b-button
+          @click="deleteVideo"
           variant="outline-danger"
           size="sm"
           v-b-tooltip.hover
-          v-if="this.video.status > 0"
+          v-if="this.video.status > 0"          
           title="Excluir Vídeo">
           <b-icon-trash></b-icon-trash> Excluir
         </b-button>
@@ -59,6 +60,24 @@ export default {
   computed: {
     transformDate() {
       return new Date(this.video.created).toLocaleDateString()
+    }
+  },  
+  methods: {
+    deleteVideo() {
+      if(confirm('Tem certeza que deseja remover definitivamente este vídeo?')) {
+        console.log(this.video.id)
+        this.$http.delete(`/video/${this.video.id}`, {})
+          .then(() => {
+            this.$toasted.global.defaultSuccess({ 
+                msg: 'Vídeo removido com sucesso!'
+            })
+          })
+          .catch(res => {
+            this.$toasted.global.defaultError({ 
+                msg: 'Problemas ao remover vídeo. Error: ' + res
+            })
+          })
+      }
     }
   }
 };

@@ -1,18 +1,8 @@
 <template>
   <b-container fluid>
     <b-card>
-      <b-card-title>Vídeos <b-badge pill>Acervo atual 12.458 registros</b-badge></b-card-title>      
-      <b-card-body>
-        <div class="container-form mb-4">
-          <b-form-select
-            class="mr-2"
-            v-model="frmAge"
-            :options="ageOptions"></b-form-select>
-          <b-form-input
-            class="mr-2"
-            placeholder="Pesquisar"></b-form-input>
-          <b-button>Filtrar</b-button>
-        </div>
+      <b-card-title class="no-user-select">Vídeos <b-badge pill>Acervo total {{ counterVideos }} vídeos</b-badge></b-card-title>      
+      <b-card-body>        
         <ItemsVideos />
       </b-card-body>
     </b-card>
@@ -20,9 +10,19 @@
 </template>
 
 <script>
-import ItemsVideos from '../../components/public/videos/ItemsVideos.vue'
+import ItemsVideos from '@/components/public/videos/ItemsVideos.vue'
 export default {
-  components: { ItemsVideos }
+  data(){
+    return {
+      counterVideos: 0
+    }
+  },
+  components: { ItemsVideos },
+  created() {
+    this.$http.get(`/video/fullcount`).then(res => 
+      this.counterVideos = res.data
+    )
+  }
 }
 </script>
 

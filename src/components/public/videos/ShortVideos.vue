@@ -1,7 +1,8 @@
 <template>
   <div>
     <b-card-title>
-      <strong>Vídeoteca</strong> <b-badge pill>Acervo atual 154 vídeos</b-badge>
+      <strong>Vídeoteca</strong>&nbsp;
+      <b-badge pill>Acervo atual {{ counterVideos }} vídeos</b-badge>
     </b-card-title>
     <b-card-body>
       <Item
@@ -24,6 +25,7 @@ export default {
   data(){
     return {
       video: [],
+      counterVideos: 0
     }
   },
   components: { Item },
@@ -42,6 +44,10 @@ export default {
           })          
         })        
       })
+
+    this.$http.get(`/video/fullcount`).then(res => 
+      this.counterVideos = res.data
+    )
   }
 }
 </script>

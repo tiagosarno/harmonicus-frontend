@@ -23,3 +23,6 @@ h2 {
   font-weight: 300 !important;
   box-shadow: 0 0 0.5em #485461 !important;
 }
+.no-user-select {
+  user-select: none;
+}
