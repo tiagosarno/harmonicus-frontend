@@ -110,14 +110,14 @@
               >
                 <b-icon-instagram></b-icon-instagram>
               </b-button>
-              <b-button
+              <!-- <b-button
                 @click="accessYouTube"
                 variant="dark"
                 v-b-tooltip.hover
                 title="Acesse nosso YouTube"
               >
                 <b-icon-youtube></b-icon-youtube>
-              </b-button>
+              </b-button> -->
             </b-button-group>
         </div>
       </div>
@@ -142,7 +142,7 @@ export default {
   },
   methods: {
     accessWhatsApp() {
-      window.open("http://instagram.com/harmonicus.psi", "_blank");
+      window.open("https://api.whatsapp.com/send?phone=62992708905&text=Ol%C3%A1!", "_blank");
     },
     accessFacebook() {
       window.open("http://facebook.com/harmonicuspsi", "_blank");
