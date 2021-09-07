@@ -86,7 +86,9 @@ export default {
           'key': 'title',
           'value': this.valueSearch,
           'key2': 'description',
-          'value2': this.valueSearch
+          'value2': this.valueSearch,
+          'key3': 'tags',
+          'value3': this.valueSearch
         })
           .then(res => {
             this.videos = []
