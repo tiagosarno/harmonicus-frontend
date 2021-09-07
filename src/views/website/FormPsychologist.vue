@@ -160,14 +160,22 @@
               class="mt-2"
               v-model="form.file1"
               :state="Boolean(form.file1)"
-              placeholder="Fotografia 3x4"
-              drop-placeholder="Fotografia 3x4"
+              placeholder="Certificado de conclusão de curso"
+              drop-placeholder="Certificado de conclusão de curso"
               required
               browse-text="Selecionar"></b-form-file>
             <b-form-file
               class="mt-2"
               v-model="form.file2"
               :state="Boolean(form.file2)"
+              placeholder="Fotografia para o perfil"
+              drop-placeholder="Fotografia para o perfil"
+              required
+              browse-text="Selecionar"></b-form-file>
+            <b-form-file
+              class="mt-2"
+              v-model="form.file3"
+              :state="Boolean(form.file3)"
               placeholder="Certidão de Regularidade de Inscrição de Pessoa Física"
               drop-placeholder="Certidão de Regularidade de Inscrição de Pessoa Física"
               required
@@ -175,24 +183,24 @@
               </b-form-file>
             <b-form-file
               class="mt-2"
-              v-model="form.file3"
-              :state="Boolean(form.file3)"
+              v-model="form.file4"
+              :state="Boolean(form.file4)"
               placeholder="Cópia do CRP"
               drop-placeholder="Cópia do CRP, arraste e solte aqui..."
               required
               browse-text="Selecionar"></b-form-file>
             <b-form-file
               class="mt-2"
-              v-model="form.file4"
-              :state="Boolean(form.file4)"
+              v-model="form.file5"
+              :state="Boolean(form.file5)"
               placeholder="Comprovante de endereço"
               drop-placeholder="Comprovante do endereço"
               required
               browse-text="Selecionar"></b-form-file>
             <b-form-file
               class="mt-2"
-              v-model="form.file5"
-              :state="Boolean(form.file5)"
+              v-model="form.file6"
+              :state="Boolean(form.file6)"
               placeholder="Cópia do RG e CPF"
               drop-placeholder="Cópia do RG e CPF"
               required
@@ -270,6 +278,7 @@ export default {
         file3: [],
         file4: [],
         file5: [],
+        file6: [],
       },
       itemsSpeciality: [],
       itemsTheme: [],
