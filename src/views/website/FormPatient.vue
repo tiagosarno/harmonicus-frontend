@@ -43,7 +43,7 @@
             class="mt-2"></b-form-input>
           <b-form-checkbox 
             value="1"
-            v-model="form.phoneIsWhatsApp">
+            v-model="form.phone_is_whatsapp">
             Este número é meu WhatsApp
           </b-form-checkbox>
           <b-form-group
@@ -51,7 +51,7 @@
             class="mt-3">
             <b-form-input
               id="frm-pa-birthdate"
-              v-model="form.birthDate"
+              v-model="form.birth_date"
               type="date"
               required
               class="mt-2"></b-form-input>
@@ -60,41 +60,59 @@
         <b-card>
           <b-form-select
             id="frm-pa-state"
-            v-model="form.state"
-            :options="itemsStates"
+            v-model="form.id_country"
+            :options="itemsCountry"
+            @change="getStates"
             required
             class="mt-2"></b-form-select>
-          <b-form-input
-            id="frm-pa-addresscity"
-            v-model="form.city"
-            placeholder="Cidade"
+          <b-form-select
+            id="frm-pa-state"
+            v-model="form.id_state"
+            :options="itemsState"
+            @change="getCities"
             required
-            class="mt-2"></b-form-input>
+            class="mt-2"></b-form-select>
+          <b-form-select
+            id="frm-pa-city"
+            v-model="form.id_city"
+            :options="itemsCity"
+            required
+            class="mt-2"></b-form-select>
           <b-form-select
             id="frm-pa-howfindharmonicus"
-            v-model="form.howFindHarmonicus"
+            v-model="form.how_find_harmonicus"
             :options="itemsHowFind"
             required
             class="mt-2"></b-form-select>
-          <b-form-group
-            class="mt-3"
-            label="Qual das ferramentas re reunião on-line você conhece?"
-            v-slot="{ ariaApplications }">
-            <b-form-checkbox-group
-              v-model="form.chatApplications"
-              :options="optionsChatApplications"
-              :aria-describedby="ariaApplications"
-              name="chatNetworks"
-              required></b-form-checkbox-group>
-          </b-form-group>
+          <b-alert show variant="secondary" class="mt-2">
+            <h5><b-badge variant="dark">Termo de Uso</b-badge></h5>
+            <p class="mb-1">
+              <a href="/files/termos-de-uso.pdf" 
+                target="_blank">
+                Clique para ler o "Termo de Uso" da 
+                plataforma Harmonicus</a></p>            
+          </b-alert>
+          <b-checkbox
+            class="mb-2"
+            id="acept"
+            name="acept"
+            v-model="form.acept"
+            required
+            @change="verifySubmit">
+            Estou ciente do <strong>Termo de Uso</strong> e ciente que para a 
+            realização de consultas será utilizado o serviço de comunicação 
+            por vídeo <strong>Google Meet</strong>.
+          </b-checkbox>
           <b-card-footer class="mt-4">
             <b-button type="submit" 
               variant="primary" 
-              class="mr-2">
+              class="mr-2"
+              :disabled="form.disableSubmit">
               Enviar <b-icon-box-arrow-right></b-icon-box-arrow-right>
             </b-button>
             <b-button type="reset" 
-              variant="danger">Limpar</b-button>
+              variant="danger"
+              :disabled="form.disableSubmit">Limpar</b-button>
           </b-card-footer>
         </b-card>
       </b-card-group>
@@ -108,18 +126,25 @@ export default {
     return {      
       showForm: true,
       form: {
-        email: "",
-        name: "",
-        howFindHarmonicus: null,
-        state: null,
-        chatApplications: [],
+        email: null,
+        name: null,
         gender: [],
-        phoneIsWhatsApp: "",
-        city: ""
+        phone_is_whatsapp: null,
+        disableSubmit: true,
+        how_find_harmonicus: null,
+        id_country: null,
+        id_state: null,
+        id_city: null,
+        acept: null,
       },
-      itemsStates: [
+      itemsCountry: [
+        { value: null, text: "Selecione o seu país", disabled: true },
+      ],
+      itemsState: [
         { value: null, text: "Selecione o seu Estado (UF)", disabled: true },
-        { value: "GO", text: "Goiás" },
+      ],
+      itemsCity: [
+        { value: null, text: "Selecione a sua Cidade", disabled: true },
       ],
       itemsHowFind: [
         {
@@ -127,19 +152,17 @@ export default {
           text: "Ajude-nos. Como conheceu Harmonicus?",
           disabled: true,
         },
-        { value: 1, text: "Indicação de outro paciente" },
-        { value: 2, text: "Indicação de psicólogo da plataforma" },
-        { value: 3, text: "Propaganda no Instagram" },
-        { value: 4, text: "Propaganda no Facebook" },
-        { value: 5, text: "Pesquisa no Google" },
-      ],
-      optionsChatApplications: [
-        { text: "Microsoft Teams", value: 1 },
-        { text: "Google Meet", value: 2 },
-        { text: "ZooM", value: 3 },
-        { text: "Skype", value: 4 },
-        { text: "WhatsApp", value: 5 },
-        { text: "Não conheço nenhuma delas", value: 6 },
+        { 
+          value: 'Indicação de outro paciente', 
+          text: 'Indicação de outro paciente' 
+        },
+        { 
+          value: 'Indicação de psicólogo da plataforma', 
+          text: 'Indicação de psicólogo da plataforma' 
+        },
+        { value: 'Propaganda no Instagram', text: 'Propaganda no Instagram' },
+        { value: 'Propaganda no Facebook', text: 'Propaganda no Facebook' },
+        { value: 'Pesquisa no Google', text: 'Pesquisa no Google' },
       ],      
       optionsGender: [
         { value: 'M', text: 'Masculino' },
@@ -148,21 +171,96 @@ export default {
     };
   },
   methods: {
-    onSubmit(event) {
-      event.preventDefault();
-      console.log(JSON.stringify(this.form))
+    verifySubmit(e) {
+        this.form.disableSubmit = !e
     },
-    onReset(event) {
-      event.preventDefault();
-      // Reset our form values
-      this.form = [];
-      
+    onSubmit(event) {
+      event.preventDefault()      
+      this.$http.post('/patient/store', {
+        status: 0,
+        name: this.form.name,
+        email: this.form.email,
+        cpf: this.form.cpf,
+        birth_date: this.form.birth_date,
+        phone: this.form.phone,
+        phone_is_whatsapp: this.form.phone_is_whatsapp,
+        how_find_harmonicus: this.form.how_find_harmonicus,        
+      }).then(() => {
+          this.$toasted.global.defaultSuccess({ msg: 'Cadastro Realizado com Sucesso'})
+          this.resetForm()
+      })
+    },
+    resetForm(){
+      this.form = []
+      this.form.howFindHarmonicus = null
+      this.form.id_country = null
+      this.form.id_state = null
+      this.form.id_city = null
+      this.verifySubmit()
       // Trick to reset/clear native browser form validation state
-      this.show = false;
+      this.show = false
       this.$nextTick(() => {
         this.show = true;
       });
     },
+    onReset(event) {
+      event.preventDefault()
+      this.resetForm()
+    },
+    getStates() {
+      this.form.id_state = null
+      this.form.id_city = null
+      this.itemsState = [
+        { 
+          value: null, 
+          text: "Selecione o seu Estado (UF)", 
+          disabled: true 
+        },
+      ]
+      this.itemsCity = [
+        { value: null, text: "Selecione a sua Cidade", disabled: true },
+      ]
+
+      this.$http.post('/state/search', {
+        'key': 'id_country',
+        'value': this.form.id_country
+      }).then(res => {
+        res.data.map((i) => {
+          this.itemsState.push({
+            'text': i.name,
+            'value': i.id,
+          })
+        })
+      })
+    },
+    getCities() {
+      this.itemsCity = [
+        { value: null, text: "Selecione a sua Cidade", disabled: true },
+      ]
+
+      this.$http.post('/city/search', {
+        'key': 'uf',
+        'value': this.form.id_state
+      }).then(res => {
+        res.data.map((i) => {
+          this.itemsCity.push({
+            'text': i.name,
+            'value': i.id,
+          })
+        })
+      })
+    }
+  },
+  created() {
+    this.$http.get('/country')
+    .then(res => {
+      res.data.map((i) => {
+        this.itemsCountry.push({
+          'text': i.name_pt,
+          'value': i.id,
+        })
+      })
+    })
   },
   mounted() {
     this.$store.commit('changeShowSearch', false)
