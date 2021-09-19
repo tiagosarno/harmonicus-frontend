@@ -6,13 +6,7 @@
         <b-card-text>
           <div class="ma-2 mt-2 ml-2 description">
             <h4>Título do Artigo</h4>
-            <span class="small mb-2">por:
-              <b-link 
-                :to="{ name: 'psyPage', params: { 'page': 'rosanerocha' } }"> 
-                <strong 
-                  v-b-tooltip.hover.top 
-                  title="visitar perfil">Rosane M M Rocha</strong>
-              </b-link>, há 3 meses</span>
+            <span class="small mb-2">Postado em 15/07/2021</span>
             <span>Breve descrição do artigo...</span>
           </div>
         </b-card-text>
