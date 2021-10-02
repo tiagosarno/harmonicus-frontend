@@ -55,7 +55,11 @@
     </b-nav-item-dropdown>
     <b-nav-item :to="{ name: 'admin-psi-messages' }">
       Mensagens</b-nav-item>
-    <b-nav-item :to="{ name: 'admin-psi-support' }">
+    <b-nav-item
+      href="https://api.whatsapp.com/send?phone=5562998474453&text=Ol%C3%A1!%20Eu%20gostaria%20de%20obter%20um%20suporte"
+      target="_blank"
+      v-b-tooltip.hover
+      title="Chamar Suporte Técnico WhatsApp">
       Suporte Técnico</b-nav-item>
   </b-navbar-nav>
 </template>

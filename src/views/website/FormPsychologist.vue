@@ -229,18 +229,21 @@
               <b-form-checkbox-group
                 v-model="form.docs"
                 :options="optionsDocs"
-                :aria-describedby="ariaDocs"                
+                :aria-describedby="ariaDocs"             
+                @change="verifySubmit"   
                 required></b-form-checkbox-group>
             </b-form-group>
           </b-alert>
           <b-card-footer class="mt-4">
             <b-button type="submit" 
               variant="primary" 
-              class="mr-2">
+              class="mr-2"
+              :disabled="form.disableSubmit">
               Enviar <b-icon-box-arrow-right></b-icon-box-arrow-right>
             </b-button>
             <b-button type="reset" 
-              variant="danger">Limpar</b-button>
+              variant="danger"
+              :disabled="form.disableSubmit">Limpar</b-button>
           </b-card-footer>
         </b-card>
       </b-card-group>
@@ -257,6 +260,7 @@ export default {
     return {      
       showForm: true,
       form: {
+        disableSubmit: true,
         email: null,
         name: null,
         state: null,
@@ -304,6 +308,7 @@ export default {
         { value: 'M', text: 'Masculino' },
         { value: 'F', text: 'Feminino' },
       ],
+      stateDocs: [],
       optionsDocs: [
         { value: 1, text: 'Estou ciente que a Harmonicus atua integrada com a minha agenda Google e com a dos meus pacientes. Também estou ciente que a plataforma recomenda o uso da ferramenta Google Meeting para a realização dos meus atendimentos.' },
         { value: 2, text: 'Li e aceito todos os termos de uso' },
@@ -313,7 +318,15 @@ export default {
       ],
     };
   },
-  methods: {    
+  methods: {
+    verifySubmit() {
+      if(this.stateDocs.length == this.form.optionsDocs) {
+        this.form.disableSubmit = true
+      }
+      else {
+        this.form.disableSubmit = false
+      }
+    },
     onSubmit(event) {
       event.preventDefault();
       console.log(JSON.stringify(this.form))

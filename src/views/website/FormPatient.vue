@@ -19,14 +19,7 @@
               :aria-describedby="ariaGender"
               name="frm-pa-gender"
               required></b-form-radio-group>
-          </b-form-group>
-          <b-form-input
-            id="frm-pa-email"
-            v-model="form.email"
-            type="email"
-            placeholder="E-mail"
-            required
-            class="mt-2"></b-form-input>
+          </b-form-group>          
           <b-form-input
             id="frm-pa-cpf"
             v-model="form.cpf"
@@ -53,6 +46,46 @@
               id="frm-pa-birthdate"
               v-model="form.birth_date"
               type="date"
+              required
+              class="mt-2"></b-form-input>
+          </b-form-group>
+          <b-form-group
+            class="mt-3"
+            label="Dados de Acesso">            
+            <b-form-input
+              id="frm-pa-email"
+              v-model="form.email"
+              type="email"
+              placeholder="E-mail"
+              :state="stateEmail"
+              @change="verifyEmail"
+              required
+              class="mt-2"></b-form-input>
+            <b-alert show variant="info" class="mt-1" v-if="showAlertEmail">
+              Você precisa confirmar o seu e-mail, por favor <b-link @click="changeAlertEmail"><strong>clique aqui</strong></b-link>.
+            </b-alert>
+            <b-alert show variant="secondary" class="mt-1" v-if="showConfirmCodeEmail">
+              Informe o código recebido no seu e-mail 
+              <b-input
+                class=""
+                id="form-pa-confirm-code-email"
+                @change="checkConfirmationEmail"
+                @keypress.enter="checkConfirmationEmail"
+                v-model="codeEmail"></b-input>
+              <b-link @click="reSendCodeEmail">Reenviar código de validação</b-link>
+            </b-alert>
+            <b-form-input
+              id="frm-pa-password"
+              v-model="form.password"
+              type="password"
+              placeholder="Senha ***"
+              required
+              class="mt-2"></b-form-input>
+            <b-form-input
+              id="frm-pa-confirm-password"
+              v-model="form.confirmPassword"
+              type="password"
+              placeholder="Confirme a senha ***"
               required
               class="mt-2"></b-form-input>
           </b-form-group>
@@ -125,6 +158,9 @@ export default {
   data() {
     return {      
       showForm: true,
+      showAlertEmail: false,
+      showConfirmCodeEmail: false,
+      stateEmail: null,
       form: {
         email: null,
         name: null,
@@ -136,6 +172,8 @@ export default {
         id_state: null,
         id_city: null,
         acept: null,
+        password: null,
+        cconfirmPassword: null,
       },
       itemsCountry: [
         { value: null, text: "Selecione o seu país", disabled: true },
@@ -171,11 +209,35 @@ export default {
     };
   },
   methods: {
+    verifyEmail(){
+      this.showAlertEmail = true
+      this.showConfirmCodeEmail = false
+    },
+    changeAlertEmail(){
+      this.stateEmail = false
+      this.showAlertEmail = false
+      this.showConfirmCodeEmail = true
+      this.$toasted.global.defaultSuccess({ msg: 'Enviando e-mail com o código de confirmação..'})
+    },
+    checkConfirmationEmail() {
+      this.$toasted.global.defaultSuccess({ msg: 'Validando Código..'})
+    },
     verifySubmit(e) {
         this.form.disableSubmit = !e
     },
     onSubmit(event) {
-      event.preventDefault()      
+      event.preventDefault()
+
+      if(this.form.password !== this.form.cconfirmPassword) {
+        this.$toasted.global.defaultError({msg: 'Senha e Confirmação de senha não conferem'})
+        return false
+      }
+
+      if(this.stateEmail === false) {
+        this.$toasted.global.defaultError({msg: 'É necessário confirmar o seu e-mail para finalizar o seu cadastro'})
+        return false
+      }
+
       this.$http.post('/patient/store', {
         status: 0,
         name: this.form.name,

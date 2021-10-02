@@ -1,10 +1,13 @@
 <template>
   <div>
-    <b-card-group columns>
+    <b-card-group columns v-if="showVideos">
       <Item 
         v-for="item in videos" :key="item"
         :video="item" />
     </b-card-group>
+    <b-card class="size-card" v-else>
+      <b-alert show variant="danger" class="text-center">Você não possui nenhum vídeo até o momento</b-alert>
+    </b-card>
   </div>
 </template>
 
@@ -16,7 +19,8 @@ export default {
   components: { Item },
   data() {
     return {
-      videos: []
+      videos: [],
+      showVideos: false
     }
   },
   created() {   
@@ -41,4 +45,8 @@ export default {
 }
 </script>
 
-<style></style>
+<style>
+.size-card {
+  height: 100vw;
+}
+</style>
