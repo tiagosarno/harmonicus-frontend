@@ -1,18 +1,8 @@
 <template>
   <b-container fluid>
     <b-card>
-      <b-card-title>Artigos <b-badge pill>Acervo atual 6.230 registros</b-badge></b-card-title>      
-      <b-card-body>
-        <div class="container-form mb-4">
-          <b-form-select
-            class="mr-2"
-            v-model="frmAge"
-            :options="ageOptions"></b-form-select>
-          <b-form-input
-            class="mr-2"
-            placeholder="Pesquisar"></b-form-input>
-          <b-button>Filtrar</b-button>
-        </div>
+      <b-card-title>Artigos <b-badge pill>Acervo total {{ counter }} artigos</b-badge></b-card-title>      
+      <b-card-body>        
         <ItemsArticles />
       </b-card-body>
     </b-card>
@@ -22,7 +12,17 @@
 <script>
 import ItemsArticles from '../../components/public/articles/ItemsArticles.vue'
 export default {
-  components: { ItemsArticles }
+  data(){
+    return {
+      counter: 0
+    }
+  },
+  components: { ItemsArticles },
+  created() {
+    this.$http.get(`/article/fullcount`).then(res => 
+      this.counter = res.data
+    )
+  }
 }
 </script>
 

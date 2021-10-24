@@ -1,41 +1,37 @@
 <template>
   <b-container fluid>
+    
     <b-card-group deck class="mt-3">
       <b-card no-body :class="{'mr-2': applyMargin}">
         <b-card-body>
-          <ShortVideos />
+          <Search />
         </b-card-body>
-      </b-card>
-      <b-card no-body :class="{'ml-2': applyMargin}">
+      </b-card>      
+    </b-card-group>
+
+    <b-card-group deck class="mt-3">
+      <b-card no-body :class="{'mr-2': applyMargin}">
         <b-card-body>
           <Wellcome />
         </b-card-body>
       </b-card>
-    </b-card-group>
-
-    <b-card-group deck class="mt-3">
-      <b-card no-body :class="{'mr-2': applyMargin}">
-        <b-card-body>
-          <ShortArticles />
-        </b-card-body>
-      </b-card>
       <b-card no-body :class="{'ml-2': applyMargin}">
-        <b-card-body>
+        <b-card-body>          
           <WhoIsHarmonicus />
         </b-card-body>
       </b-card>
     </b-card-group>
+
   </b-container>
 </template>
 
 <script>
-import ShortArticles from "../../components/public/articles/ShortArticles.vue";
-import ShortVideos from "../../components/public/videos/ShortVideos.vue";
 import Wellcome from "../../components/Wellcome.vue";
 import WhoIsHarmonicus from "../../components/WhoIsHarmonicus.vue";
+import Search from './Search.vue';
 
 export default {
-  components: { ShortArticles, ShortVideos, Wellcome, WhoIsHarmonicus },
+  components: { Wellcome, WhoIsHarmonicus, Search },
   data() {
     return {
       classBox: [],

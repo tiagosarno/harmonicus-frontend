@@ -1,7 +1,7 @@
 <template>
   <b-container fluid>
     <b-card>
-      <b-card-title class="no-user-select">Vídeos <b-badge pill>Acervo total {{ counterVideos }} vídeos</b-badge></b-card-title>      
+      <b-card-title class="no-user-select">Vídeos <b-badge pill>Acervo total {{ counter }} vídeos</b-badge></b-card-title>      
       <b-card-body>        
         <ItemsVideos />
       </b-card-body>
@@ -14,13 +14,13 @@ import ItemsVideos from '@/components/public/videos/ItemsVideos.vue'
 export default {
   data(){
     return {
-      counterVideos: 0
+      counter: 0
     }
   },
   components: { ItemsVideos },
   created() {
     this.$http.get(`/video/fullcount`).then(res => 
-      this.counterVideos = res.data
+      this.counter = res.data
     )
   }
 }

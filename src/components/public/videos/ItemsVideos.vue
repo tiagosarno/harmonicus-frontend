@@ -43,15 +43,7 @@ export default {
     }
   },
   created() {
-    this.getRandomVideos()
-    this.$http.get('/themes').then(res => {
-          res.data.map((d) => {
-              this.itemsTheme.push({
-                  'value': d.id,
-                  'text': d.description,
-              })
-          })
-      })
+    this.getRandomVideos()    
   },
   methods: {
     getRandomVideos() {

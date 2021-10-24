@@ -8,7 +8,7 @@
         title="Página Inicial">
         <b-icon-house-fill></b-icon-house-fill>
       </b-button>
-      <b-dropdown left text="Menu" variant="primary">
+      <b-dropdown left text="Conteúdos" variant="primary">
         <b-dropdown-item          
           v-for="(menu,i) in menus" 
           :key="i"
@@ -58,9 +58,8 @@ export default {
     return {
       authenticated: false,
       menus: [
-        { value: 'videos', text: 'Videoteca' },
         { value: 'articles', text: 'Artigos' },
-        { value: 'questions', text: 'Perguntas & Respostas' },
+        { value: 'videos', text: 'Vídeos' },
       ],
       menusRegister: [
         { value: 'FormPatient', text: 'Cadastro de Paciente' },

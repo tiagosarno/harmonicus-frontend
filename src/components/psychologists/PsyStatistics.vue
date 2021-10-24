@@ -1,6 +1,6 @@
 <template>
   <b-list-group class="se-psy-statistics">
-    <b-list-group-item class="selection-none">
+    <!-- <b-list-group-item class="selection-none">
       <b-badge variant="secondary" pill>5698</b-badge>
       Avaliações
       <b-icon-star-fill font-scale="0.8" 
@@ -13,7 +13,7 @@
         variant="warning"></b-icon-star-fill>
       <b-icon-star-fill font-scale="0.8"
         variant="warning"></b-icon-star-fill>
-    </b-list-group-item>
+    </b-list-group-item> -->
     <b-list-group-item class="selection-none">
       <b-icon-people-fill></b-icon-people-fill>
       Atendimentos
@@ -23,7 +23,7 @@
       v-if="link == 'yes'"
       v-b-tooltip.hover.bottom
       title="Ver Vídeos"
-      :to="{ name: 'videos', params: {psy: '12345'} }"
+      :to="{ name: 'psyPage', params: { 'page': 'rui' } }"
       action>
       <b-icon-youtube></b-icon-youtube>
       Vídeos Publicados
@@ -40,7 +40,7 @@
       v-if="link == 'yes'"
       v-b-tooltip.hover.bottom
       title="Ver Artigos"
-      :to="{ name: 'articles', params: {psy: '12345'} }"
+      :to="{ name: 'psyPage', params: {psy: 'rui'} }"
       action>
       <b-icon-newspaper></b-icon-newspaper>
       Artigos Publicados

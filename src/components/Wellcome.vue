@@ -2,7 +2,7 @@
   <div>
     <b-card-title>
       <span>Bem vindos</span> <strong>ao time</strong>&nbsp;
-      <b-badge pill>37 psicólogos</b-badge>
+      <b-badge pill>20 psicólogos</b-badge>
     </b-card-title>
     <b-card-body>
       <b-list-group>
@@ -22,8 +22,8 @@
             </b-link>
             <span class="mr-auto">
               Psicólogo Clínico
-              <b-badge class="mr-2">Constelação Familiar</b-badge>
-              <b-badge class="mr-2">Depressão</b-badge>
+              <b-badge class="mr-2 p-2">Constelação Familiar</b-badge>
+              <b-badge class="mr-2 p-2">Depressão</b-badge>
             </span>
           </div>
         </b-list-group-item>
@@ -42,7 +42,7 @@
             </b-link>
             <span class="mr-auto">
               Psicóloga Clínica
-              <b-badge class="mr-2">Gestault-Terapia</b-badge>
+              <b-badge class="mr-2 p-2">Gestault-Terapia</b-badge>
             </span>
           </div>
         </b-list-group-item>
@@ -61,7 +61,7 @@
             </b-link>
             <span class="mr-auto">
               Psicóloga Clínica
-              <b-badge class="mr-2">Constelação Familiar</b-badge>
+              <b-badge class="mr-2 p-2">Constelação Familiar</b-badge>
             </span>
           </div>
         </b-list-group-item>
@@ -80,16 +80,54 @@
             </b-link>
             <span class="mr-auto">
               Psicóloga Clínica
-              <b-badge class="mr-2">Constelação Familiar</b-badge>
+              <b-badge class="mr-2 p-2">Constelação Familiar</b-badge>
+            </span>
+          </div>
+        </b-list-group-item>
+        <b-list-group-item class="d-flex align-items-center">
+          <b-avatar            
+            src="https://media.vittude.com/media/psicologo-heloisa-bernardes-de-oliveira-caiuby_plKtJLy.webp"
+            class="mr-3"
+            size="5rem"
+            button
+            @click="onClick"
+            v-b-tooltip.hover title="visitar perfil"
+          ></b-avatar>
+          <div class="display-flex-column">
+            <b-link :to="{ name: '' }">
+              <strong v-b-tooltip.hover.top title="visitar perfil">Jordana Keller</strong>
+            </b-link>
+            <span class="mr-auto">
+              Psicóloga Clínica
+              <b-badge class="mr-2 p-2">Constelação Familiar</b-badge>
+            </span>
+          </div>
+        </b-list-group-item>
+        <b-list-group-item class="d-flex align-items-center">
+          <b-avatar            
+            src="https://media.vittude.com/media/psicologo-heloisa-bernardes-de-oliveira-caiuby_plKtJLy.webp"
+            class="mr-3"
+            size="5rem"
+            button
+            @click="onClick"
+            v-b-tooltip.hover title="visitar perfil"
+          ></b-avatar>
+          <div class="display-flex-column">
+            <b-link :to="{ name: '' }">
+              <strong v-b-tooltip.hover.top title="visitar perfil">Jordana Keller</strong>
+            </b-link>
+            <span class="mr-auto">
+              Psicóloga Clínica
+              <b-badge class="mr-2 p-2">Constelação Familiar</b-badge>
             </span>
           </div>
         </b-list-group-item>
       </b-list-group>
     </b-card-body>
     <b-card-footer>
-      <b-link :to="{ name: 'search' }">
-        ver todos <b-icon-chevron-double-right></b-icon-chevron-double-right>
-      </b-link>
+      <span class="user-select-none">
+        <i>“O talento vence jogos, mas só o trabalho em equipe ganha campeonatos.” — Michael Jordan.</i>
+      </span>
     </b-card-footer>
   </div>
 </template>

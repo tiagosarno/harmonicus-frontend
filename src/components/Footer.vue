@@ -3,8 +3,8 @@
     <b-card bg-variant="primary">
       <div class="container-footer">
         <div class="item-footer">
-          <p><b-link :to="{ name: 'videos' }">Videoteca</b-link></p>
-          <p><b-link :to="{ name: 'articles' }">Artigos</b-link></p>
+          <!-- <p><b-link :to="{ name: 'videos' }">Videoteca</b-link></p>
+          <p><b-link :to="{ name: 'articles' }">Artigos</b-link></p> -->
           <p><b-link :to="{ name: 'whoIs' }">Quem Somos</b-link></p>
           <p><b-link 
             v-b-modal.modal-prevent-closing>Assinar Newsletter</b-link></p>
@@ -60,7 +60,7 @@
         </div>
         <div class="item-footer">
           <p><b-link :to="{ name: 'signUp', params: { component: 'FormPsychologist' } }">Faça parte do time (Cadastro)</b-link></p>
-          <p><b-link :to="{ name: 'questions' }">FAQ (Perguntas Frequentes)</b-link></p>
+          <!-- <p><b-link :to="{ name: 'questions' }">FAQ (Perguntas Frequentes)</b-link></p> -->
           <p><a href="/files/codigo-de-etica-psicologo.pdf" target="_blank">Código de Ética</a></p>
           <p><a href="/files/politica-de-privacidade.pdf" target="_blank">Política de Privacidade</a></p>
           <p>

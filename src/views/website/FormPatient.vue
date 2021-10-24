@@ -132,9 +132,7 @@
             v-model="form.acept"
             required
             @change="verifySubmit">
-            Estou ciente do <strong>Termo de Uso</strong> e ciente que para a 
-            realização de consultas será utilizado o serviço de comunicação 
-            por vídeo <strong>Google Meet</strong>.
+            Estou ciente e aceito todas as condições do <strong>Termo de Uso</strong>.
           </b-checkbox>
           <b-card-footer class="mt-4">
             <b-button type="submit" 

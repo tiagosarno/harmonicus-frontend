@@ -10,8 +10,8 @@
                 Goiânia - GO
             </p> 
             <p class="mb-1">
-                <b-badge class="mr-2">Constelação Familiar</b-badge>
-                <b-badge class="mr-2">Depressão</b-badge>
+                <b-badge class="mr-2 p-2">Constelação Familiar</b-badge>
+                <b-badge class="mr-2 p-2">Depressão</b-badge>
             </p>           
         </span>
         <b-alert show variant="success" class="selection-none mt-2 mb-1">
